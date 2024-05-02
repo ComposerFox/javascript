@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<input type = "checkbox" name = "subject" value = "html"> html <br>
+<input type = "checkbox" name = "subject" value = "java"> java <br>
+<input type = "checkbox" name = "subject" value = "oracle"> oracle <br>
+<input type = "checkbox" name = "subject" value = "javascript"> javascript <br>
+<input type = "checkbox" name = "subject" value = "jsp"> jsp <br><br>
+
+<button type = "button" onclick = "fn_action()">전송</button>
+
+<script>
+
+function fn_action() {
+	let subject = document.getElementsByName("subject");
+	let len = subject.length;
+	let cnt = 0;	// 체크한 개수의 값을 가지게 되는 변수
+	
+	for( let i = 0; i < len; i++ ) {
+		if( subject[i].checked == true ) {
+			cnt++;
+		}
+	}
+	if( cnt < 3 ) {
+			alert("3개이상 체크해주세요.");
+			return false;
+	}
+	alert( cnt + "개를 체크했습니다.");
+}
+
+</script>
+
+ </body>
+</html>

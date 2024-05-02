@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+//메세지 창 : alert(확인버튼) ; confirm(확인,취소) ; prompt(input상자제공)
+		//1 
+/*
+var score = prompt("점수입력","0");
+
+if( score > 100 ) {
+	document.write("100을 초과했습니다.");
+} else if( score < 0 ) {
+	document.write("음수 설정은 안됩니다.");
+} else {
+	document.write("정상입력");
+}
+*/
+		//1.5
+/*
+var score = prompt("점수입력","0");
+
+if( score > 100 ) {
+	document.write("100을 초과했습니다.");
+} else if( score < 0 ) {
+	document.write("음수 설정은 안됩니다.");
+} else if( score == null ) {
+	document.write("취소되었습니다.");
+} else {
+	document.write("정상입력");
+} 
+*/
+		//2
+/*
+var score = prompt("점수입력");
+
+if( score >= 80 ) {
+	document.write("점수" + score + "은 우수");
+} else if( score >= 60 ) {
+	document.write("점수" + score + "은 보통");
+} else if( score == null ) {
+	alert("취소");
+} else {
+	document.write("점수" + score + "은 미흡");
+}
+*/
+		//3
+/*
+var name = prompt("사원명");
+var year = prompt("근무년수");
+
+document.write(name + "사원의 년차는 " + year +"년으로");
+
+if ( year >= 15 ) {
+	document.write("특급");
+} else if ( year >= 10 ) {
+	document.write("고급");
+} else if ( year >= 6 ) {
+	document.write("중급");
+} else if ( year == null ) {
+	alert("취소되었습니다.");
+} else {
+	document.write("초급");
+}
+
+document.write("입니다.");
+
+var level = "";
+
+if( year >= 15 ) {
+	level = "특급";
+} else if( year >= 10 ) {
+	level = "중급";
+} else if( year >= 6 ) {
+	level = "중급";
+} else {
+	level = "초급";
+}
+document.write(name + "사원의 년차는 " + year "년으로" + level + "입니다.");
+*/
+		//4
+/*
+var eng = prompt("영어점수");
+var kor = prompt("국어점수");
+
+// && (and연산자) 모두만족이 true 하나라도 아니면 false
+// || (or연산자) 둘중하나만 만족해도 true 아니면 false
+if ( eng >= 60 && kor >= 60) {
+	document.write("합격");
+} else {
+	document.write("불합격");
+}
+*/
+		//4.5
+/*
+var eng = prompt("영어점수");
+var kor = prompt("국어점수");
+
+if ( eng > 60 ) {
+	if ( kor > 60 ) {
+		document.write("합격");
+	} else {
+		document.write("불합격");
+		}
+}
+*/
+		//!!!
+// 합격, 재시험, 불합격
+// 합격(둘다만족), 재시험(둘중 한개만 만족), 불합격(둘다 60점미만)
+// 재시험 먼저 출력
+var eng = 70;
+var kor = 80;
+/*
+if( eng >= 60 && kor < 60 ) {
+	document.write("재시험");
+} else if( eng < 60 && kor >= 60 ) {
+	document.write("재시험");
+} else if( eng >= 60 && kor >= 60 ) {
+	document.write("합격");
+} else {
+	document.write("불합격");
+}
+*/
+/*
+if( ( eng >= 60 && kor < 60 ) || ( eng < 60 && kor >= 60 ) ) {
+	document.write("재시험");
+} else if( eng < 60 && kor >= 60 ) {
+	document.write("재시험");
+} else if( eng >= 60 && kor >= 60 ) {
+	document.write("합격");
+} else {
+	document.write("불합격");
+}
+*/
+/*
+var gender = prompt("성별을 입력해주세요( 남성 : M, 여성 : F )");
+
+if( gender.toUpperCase() == "M") {
+	document.write("남성");
+} else if( gender.toUpperCase() == "F") {
+	document.write("여성");
+} else {
+	document.write("오류");
+}
+*/
+/*
+			//1
+var num = prompt("숫자입력");
+// 숫자를 2로 나누고 나머지값(%)이 0이면 짝수 1이면 홀수
+// +, -, *, /, %
+if( num % 2 === 0 ) {
+	document.write("입력하신" + num + "짝수");
+} else if( num % 2 === 1 ) {
+	document.write("입력하신" + num + "홀수");
+}
+			//2
+var number = prompt("숫자입력");
+var result = number % 2;
+
+if( result == 0 ) {
+	document.write("입력하신" + number + "짝수");
+} else if( result == 1 ) {
+	document.write("입력하신" + number + "홀수");
+}
+*/
+/*
+// 7의 배수입니다
+var num = prompt("숫자입력");
+
+if( num % 7 === 0 ) {
+	document.write("입력하신 " + num + "은 7의 배수입니다.");
+} else {
+	document.write("입력하신 " + num + "은 7의 배수가 아닙니다.");
+}
+*/
+
+</script>
+ </body>
+</html>

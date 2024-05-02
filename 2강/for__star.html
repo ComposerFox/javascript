@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+document.write("<h2>");					
+		// 1번째 방법
+for(var i = 1; i <= 15; i++) {
+	document.write("*");
+	if(i % 5 == 0) {
+		document.write("<br>");
+	}
+}
+
+document.write("<hr>");
+		// 2번째 방법
+for(var b = 1; b <= 3; b++) {			
+
+	for(var a = 1; a <= 5; a++) {
+		document.write("*");
+	}
+	document.write("<br>");
+}
+
+document.write("<hr>");
+
+for( var k = 1; k <= 5; k++) {
+	for(var j = 1; j <= k; j++) {
+		document.write("*");
+	}		
+	document.write("<br>");
+}
+document.write("</h2>");
+
+</script>
+
+ </body>
+</html>

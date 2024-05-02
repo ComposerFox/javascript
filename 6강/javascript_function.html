@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>내장함수</title>
+ </head>
+ <body>
+  
+<script>
+
+let date = "2023-11-27";
+
+// 1.문자열의 길이
+document.write("length : " + date.length + "<br>");	// "10"
+
+// 2.인덱스번호 4번 위치의 값
+document.write("charAt(4) : " + date.charAt(4) + "<br>"); // "-"
+
+// 3.년월일의 분리 출력 - split() 함수사용
+let array = date.split("-"); // "-"부호를 기준으로 분리처리 (결과는 배열)
+	/* array[0] = "2023";
+	   array[1] = "11";
+	   array[2] = "27";
+	*/
+document.write("년도 : " + array[0] + "<br>");
+
+// 4.substring() 함수
+document.write("년도 : " + date.substring(0, 4) + "<br>"); // 인덱스번호 0 ~ 3
+
+document.write("<hr>");
+
+let str = "javascript java oracle";
+
+// 5.replace() 함수 :: 치환함수
+document.write("문자열 길이 : " + str.length + "<br>");
+document.write("기본출력 : " + str + "<br>");
+str = str.replace("oracle", "mysql"); // replace(old, new)
+document.write("기본출력 : " + str + "<br>");
+
+// str = "javascript java mysql";
+
+// 6.indexOf() 함수 :: 찾기함수
+let a = str.indexOf("mysql");
+document.write("mysql라는 단어는 " + a + "위치에 있습니다.<br>") // 16
+
+let b = str.indexOf("html");
+document.write("html라는 단어는 " + b + "위치에 있습니다.<br>") // -1
+
+let c = str.indexOf("css");
+if( c > -1 ) {
+	document.write("css라는 단어는 " + c + "위치에 있습니다.<br>") // -1
+} else {
+	document.write("못찾음<br>"); // -1
+}
+
+// 7.toLowerCase() toUpperCase() 대소문자 변환함수
+let i = "JAVAscript";
+document.write(i.toLowerCase("JAVA") + "<br>");
+document.write(i.toUpperCase("script"));
+
+</script>
+
+ </body>
+</html>

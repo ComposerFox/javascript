@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>배열,split</title>
+ </head>
+ <body>
+  
+<script>
+// 배열변수
+let scores = [100, 88, 92, 68, 56];
+let colors = ["빨간색", "주황색", "노랑색"];
+
+let str = "88,78,98,46,90";
+let str_array = str.split(",");
+// str_array = ["88, 78, 98, 46, 90"]
+// str_array[1] = "78"
+let hap = 0;
+for(let j = 0; j < str_array.length; j++) {
+	hap = hap + Number(str_array[j]);
+}
+let avg = hap/str_array.length;
+document.write("총합:" + hap + "평균:" + avg);
+
+for( let i = 0; i < scores.length; i++ ) {
+	document.write(scores[i] + "<br>");
+}
+
+document.write("<hr>");
+
+document.write(colors + "<br>");
+document.write(colors[0] + "<br>"); // 빨간색
+document.write(colors[1] + "<br>"); // 주황색
+document.write(colors[2] + "<br>"); // 노랑색
+
+</script>
+
+ </body>
+</html>

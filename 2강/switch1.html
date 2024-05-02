@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+
+var number = 3;
+
+switch( number ) {
+	case 1 : document.write("1 입니다.");
+	break;
+	case 2 : document.write("2 입니다.");
+	break;
+	case 3 : document.write("3 입니다.");
+	break;
+	default : document.write("없음");
+}
+document.write("<hr>");
+
+if( number == 1) {
+	document.write("1 입니다.");
+} else if( number == 2 ) {
+	document.write("2 입니다.");
+} else if( number == 3 ) {
+	document.write("3 입니다.");
+} else {
+	document.write("없음");
+}
+document.write("<hr>");
+
+var score = 90;
+
+switch( score >= 60 ) {
+	case true : alert("합격");
+	break;
+	case false : alert("불합격");
+	break;
+}
+
+
+var score2 = 50;
+
+switch( score2 >= 90) {
+	case true : document.write("우수");
+	break;
+	default : switch( score2 >= 60 ) {
+		case true : document.write("보통");
+		break;
+		default : document.write("X");
+	}
+}
+</script>
+ </body>
+</html>

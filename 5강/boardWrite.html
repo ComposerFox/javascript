@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>boardWrite.html</title>
+ </head>
+
+<style>
+table {
+	width:600px;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+tr,td {
+	border:1px solid #ccc;
+	padding:5px;
+}
+</style>
+
+ <body>
+  
+	<table border = "0"
+		   align = "center">
+	  <tr>
+	  	<td>
+
+		<font color = "#009900">
+		<table border = "0"
+			   cellpadding = "10"
+			   cellspacing = "1"
+			   bgcolor = "#cccccc"
+			   align = "center">
+
+			<tr bgcolor = "#ffffff">	
+				<th width = "150"><a href = "loginWrite.html">로그인</th>
+				<th width = "150"><a href = "memberAgree.html">회원가입</th>
+				<th width = "150" bgcolor = "#3399ff"><a href = "boardList.html">게시판</th>
+			</tr>
+
+		</table>
+
+		<br><br>
+
+		<form name = "frm" method = "post" action = "boardWriteSave.jsp">
+		<table>
+			<colgroup>
+				<col width = "25%"/>
+				<col width = "*"/>
+			</colgroup>
+			<tr bgcolor = "#ffffff">
+				<th>제목</th>
+				<td>
+					<input type = "text" name = "title" size = "50" autofocus>
+				</td>
+			</tr>
+			<tr bgcolor = "#ffffff">
+				<th>암호</th>
+				<td>
+					<input type = "password" name = "pass">
+				</td>
+			</tr>
+			<tr bgcolor = "#ffffff">
+				<th>글쓴이</th>
+				<td>
+					<input type = "text" name = "name">
+				</td>
+			</tr>
+			<tr bgcolor = "#ffffff" align = "center">
+				<th>내용</th>
+				<td>
+					<textarea name = "content" cols = "70" rows = "7"></textarea>
+				</td>
+			</tr>
+
+		</table>
+
+			<div style = "width:600px; text-align:center;">
+				<input type = "submit" value = "저장" 
+					   onclick = "fn_action(); return false;">
+				<input type = "reset" value = "취소">
+			</div>
+
+		</form>
+	</table>
+
+<script>
+
+function fn_action() {
+	if(document.frm.title.value == "") {
+		alert("제목을 입력해주세요.");
+		document.frm.title.focus();
+		return false;
+	}
+	if(document.frm.pass.value == "") {
+		alert("암호를 임력해주세요.");
+		document.frm.pass.focus();
+		return false;
+	}
+	document.frm.submit();
+}
+
+</script>
+
+ </body>
+</html>

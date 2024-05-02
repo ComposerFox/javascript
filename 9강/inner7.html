@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+
+<style>
+body {
+	padding: 10px;
+	text-align: center;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+.btn {
+	padding: 5px 20px;
+	width: 120px;
+	font-size: 12px;
+	background-color: brown;
+	color: white;
+}
+#subMenu {
+	position: absolute;
+}
+#subMenu a {
+	display: block;
+	background-color: #dfdfdf;
+	width: 100px;
+	font-size: 12px;
+	color: black;
+	text-decoration: none;
+	padding: 10px;
+	margin: 2px 0px 0px 0px;
+}
+</style>
+
+ <body>
+  
+<div class = "dropdown">
+
+<button type = "button" class = "btn" onclick = "fn_menu()">IT도서</button>
+<div style = "display:none;" id = "subMenu">
+	<a href = "#">자바 시작하기</a>
+	<a href = "#">오라클 설치하기</a>
+	<a href = "#">스프링 마스터</a>
+</div>
+
+</div>
+
+<script>
+
+function fn_menu() {
+	let s = document.getElementById("subMenu");
+	if( s.style.display == "none" ) {
+		s.style.display = "block";
+	} else {
+		s.style.display = "none";
+	}
+}
+
+</script>
+
+ </body>
+</html>

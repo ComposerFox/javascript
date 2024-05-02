@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>수학 관련 함수</title>
+ </head>
+ <body>
+  
+<script>
+
+let a = 77.7;
+let b = 77.3;
+
+document.write( Math.max(a,b) + "<br>"); // 77.7 둘중 큰값을 출력
+document.write( Math.min(a,b) + "<br>"); // 77.3 둘중 작은값을 출력
+document.write( Math.abs(-100) + "<br>"); // 100 부호를 없애는 함수
+
+// ceil() : 올림함수(소수점 자리 아래를 모두 정수형식으로 올림)
+document.write("ceil() : " + Math.ceil(a) + "<br>"); // 78
+document.write("ceil() : " + Math.ceil(b) + "<br>"); // 78
+// floor() : 내림함수(소수점 자리 아래를 모두 정수형식으로 내림)
+document.write("floor() : " + Math.floor(a) + "<br>"); // 77
+document.write("floor() : " + Math.floor(b) + "<br>"); // 77
+
+let x = 77.9;
+let y = 77.5;
+let z = 77.2;
+
+// round() : 반올림( .5 기준으로 올리거나 내리는 함수)
+document.write("round() : " + Math.round(x) + "<br>"); // 78
+document.write("round() : " + Math.round(y) + "<br>"); // 78
+document.write("round() : " + Math.round(z) + "<br>"); // 77
+
+</script>
+
+ </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<form name = "shop" method = "post" action = "">
+
+<input type = "text" name = "box1" value = "1" readonly>
+<button type = "button" onclick = "fn_plus()"> + </button>
+<button type = "button" onclick = "fn_minus()"> - </button>
+
+</form>
+
+<script>
+
+function fn_plus() {
+	let box1 = document.shop.box1.value; // box1의 수량
+	box1++;
+	if(box1 > 10) {
+		box1 = 10;
+		alert("최대 구매수량 10개 입니다.");
+	}
+	document.shop.box1.value = box1;
+}
+function fn_minus() {
+	let box1 = document.shop.box1.value;
+	box1--;
+	if(box1 <= 0) box1 = 0;
+	document.shop.box1.value = box1;
+}
+
+
+</script>
+
+ </body>
+</html>

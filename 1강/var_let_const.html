@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+// 선언
+var a = 1;	// 재선언 값바꿈가능
+let b = 1;	// 재선언만 안됨
+const c = 1;	// 상수는 고정된값 출력
+
+/*
+// 재선언
+var a = 2; // (o)	// 재선언가능
+let b = 2; // (x)	// 재선언불가
+const c = 2; // (x)	// 재선언불가
+
+a = 3; // (o)	// 값의 재정의 가능
+b = 3; // (o)	// 값의 재정의 가능
+c = 3; // (x)	// 값의 재정의 불가
+*/
+
+var a = 2;
+b = 2;
+c = 2;
+
+document.write("a" + a + "<br>");
+document.write("b" + b + "<br>");
+document.write("c" + c + "<br>");
+</script>
+ 
+ </body>
+</html>

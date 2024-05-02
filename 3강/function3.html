@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+
+  <input type = "button" value = "계산" onclick = "fn_sum1(10,20)">
+  <input type = "button" value = "계산" onclick = "fn_sum2(10,20,30)">
+  <button type = "button" value = "평수구하기" onclick = "fn_size(200)">평수구하기</button>
+
+<script>
+// 사용자 함수
+function fn_sum1(a,b) {		// 매개변수
+	let sum = a + b;
+	alert("결과 : " + sum);
+}
+function fn_sum2(a,b,c) {	// 매개변수
+	let sum2 = a + b + c;
+	alert("결과 : " + sum2);
+}
+
+function fn_size(num) {
+	// 1평 : 3.3제곱미터
+	let size1 = num;
+	let size2 = Math.round(size1 / 3.3); // Math.round() 반올림함수
+	alert(size1 + "제곱미터는" + size2 + "평입니다.");
+}
+
+</script>
+ 
+ </body>
+</html>

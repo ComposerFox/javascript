@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+
+var gender = "M";
+/*
+switch(gender) {
+	case "M" : document.write("남성");
+	break;
+	case "F" : document.write("여성");
+	break;
+	default : document.write("잘못된 값");
+}
+*/
+if(gender == "M") {
+	document.write("남성");
+} else if(gender == "F") {
+	document.write("여성");
+} else {
+	document.write("잘못된 값");
+}
+
+document.write("<hr>");
+
+var code = "b001";
+var title = "";
+/*
+switch(code) {
+	case "b001" : title = "JAVA의 첫거름";
+	break;
+	case "b002" : title = "JSP 시작하기";
+	break;
+	case "b003" : title = "오라클 데이터베이스";
+	break;
+	default : title = "없는 코드 번호입니다.";
+}
+*/
+if(code == "b001") {
+	title = "JAVA의 첫거름";
+} else if(code == "b002") {
+	title = "JSP 시작하기";
+} else if(code == "b003") {
+	title = "오라클 데이터베이스";
+} else {
+	title = "없는 코드 번호입니다.";
+}
+document.write("해당 코드의 책은 " + title + "입니다.");
+
+</script>
+ </body>
+</html>

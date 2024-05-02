@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+ 
+<!-- 날짜 -->
+<div id = "clock1"></div>
+<!-- 시간 -->
+<div id = "clock2"></div>
+
+<script>
+
+function Clock() {
+	var date = new Date();
+	var yy = date.getFullYear();
+	var mm = date.getMonth() + 1;
+	var dd = fn_zero(date.getDate());
+	var hs = fn_zero(date.getHours());
+	var ms = fn_zero(date.getMinutes());
+	var ss = fn_zero(date.getSeconds());
+	fn_write(yy, mm, dd, hs, ms, ss);
+}
+
+function fn_write(yy, mm, dd, hs, ms, ss) { // 매개변수
+	var date1 = yy + "-" + mm + "-" + dd;
+	var time1 = hs + ":" + ms + ":" + ss;	
+	document.getElementById("clock1").innerHTML = date1;
+	document.getElementById("clock2").innerHTML = time1;
+}
+
+function fn_zero(num) {	// 매개변수
+	return(num < 10?"0" + num : num);	// 삼항연산
+}
+
+// 지정된 특정함수를 반복 실행시키는 함수 (함수명, 지연시간)
+setInterval(Clock, 1000);
+
+</script>
+
+ </body>
+</html>

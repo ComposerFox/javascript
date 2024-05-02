@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+
+let email = "abc@naver.com";
+
+//1 @존재유무로 올바른지 출력
+let fn_email = email.indexOf("@");
+if(fn_email !== -1) {		//존재함
+	document.write("올바른 이메일입니다.");
+} else {
+	document.write("올바른 이메일이 아닙니다.");
+}
+
+document.write("<hr>");
+
+//2	naver를 korea로 바꾸어 출력
+document.write(email.replace("naver", "korea"));
+
+document.write("<hr>");
+
+//3	@를 구분자로 아이디/도메인을 나누어 출력
+let array = email.split("@");
+/*
+	let array = ["abc","naver.com"];
+	array[0] = "abc";
+	array[1] = "naver.com";
+*/
+document.write("아이디 : " + array[0] + "<br>");
+document.write("도메인 : " + array[1]);
+
+document.write("<hr>");
+
+//4	아이디의 길이를 출력
+document.write("아이디의 길이 : " + array[0].length);
+
+document.write("<hr>");
+
+//5	아이디의 마지막 값만 출력
+// array[0] = "abc";
+let fn_char = array[0].charAt(array[0].length-1); // c
+let len = array[0].substring(array[0].length-1, array[0].length);
+document.write("아이디의 마지막 값은 : " + fn_char + "<br>");
+document.write("아이디의 마지막 값은 : " + len);
+
+document.write("<hr>");
+
+//6 시설이라는 단어가 몇개인지 출력
+let str = "외국인시설과 내국인 시설 모두 좋은 시설이다.";
+let count = str.split("시설");
+// count[0] = "외국인";
+// count[1] = "과 내국인"
+// count[2] = "모두 좋은"
+// count[3] = "이다."
+document.write("시설이라는 단어의 갯수는 " + (count.length-1) + "개 이다.");
+
+</script>
+
+ </body>
+</html>

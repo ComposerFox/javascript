@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+ </head>
+ <body>
+
+<form id = "frm" name = "frm" method = "post" action = "save.jsp">
+
+아이디 <input type = "text" id = "userid" name = "userid"><br>
+암호	 <input type = "password" id = "pass" name = "pass"><br>
+	<button type = "button" id = "button1">전송</button>
+
+</form>
+
+<script>
+
+$(function(){
+	$("#button1").click(function(){
+
+		let userid = $("#userid").val();
+		alert(userid);
+
+	//	if($("#userid").val() == '') {
+		if($("input[name = 'userid']").val() == "") {
+			alert("아이디를 입력해주세요.");
+			$("#userid").focus();	// document.frm.userid.focus();
+			return false;
+		}
+		if($("#pass").val() == '') {
+			alert("암호를 입력해주세요.");
+			$("#pass").focus();
+			return false;
+		}
+		$("#frm").submit();
+		// document.frm.submit();
+	});
+});
+
+</script>
+
+ </body>
+</html>

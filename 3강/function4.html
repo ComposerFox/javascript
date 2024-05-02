@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<form name = "frm" method = "post" action = "">
+
+제목 <input type = "text" name = "title">
+	<button type = "button" onclick = "fn_title()">전송</button>
+<hr>
+
+1. <input type = "text" name = "n1" style = "width:50px;">
+	+
+2. <input type = "text" name = "n2" style = "width:50px;">
+	-
+   <button type = "button" onclick = "fn_plus()">결과</button>
+<hr>
+1. <input type = "text" name = "m1" style = "width:50px;">
+	+
+2. <input type = "text" name = "m2" style = "width:50px;">
+	=
+   <input type = "text" name = "m_result" style = "width:100px; border:0px;" readonly>
+<br><br>
+	<button type = "button" onclick = "fn_result1()">덧샘</button>
+	<button type = "button" onclick = "fn_result2()">뺄샘</button>
+	<button type = "button" onclick = "fn_result3()">곱샘</button>
+	<button type = "button" onclick = "fn_result4()">나눗샘</button>
+</form>
+
+
+<script>
+
+function fn_title() {
+				//현재창.폼네임.상자이름.값
+	let title = document.frm.title.value;
+	alert(title);
+}
+
+function fn_plus() {
+	let n1 = document.frm.n1.value;
+	let n2 = document.frm.n2.value;
+	let n_value = Number(n1) + Number(n2);
+	alert(n1 + "+" + n2 + "=" + n_value);
+}
+///////////////////////////////////////////////
+function fn_result1() {
+	let m1 = document.frm.m1.value;
+	let m2 = document.frm.m2.value;
+	let m_value = Number(m1) + Number(m2);
+	document.frm.m_result.value = m_value;
+	//alert(m1 + "+" + m2 + "=" + m_value);
+}
+function fn_result2() {
+	let m1 = document.frm.m1.value;
+	let m2 = document.frm.m2.value;
+	let m_value = Number(m1) - Number(m2);
+	document.frm.m_result.value = m_value;
+	//alert(m1 + "-" + m2 + "=" + m_value);
+}
+function fn_result3() {
+	let m1 = document.frm.m1.value;
+	let m2 = document.frm.m2.value;
+	let m_value = Number(m1) * Number(m2);
+	document.frm.m_result.value = m_value;
+	//alert(m1 + "X" + m2 + "=" + m_value);
+}
+function fn_result4() {
+	let m1 = document.frm.m1.value;
+	let m2 = document.frm.m2.value;
+	let m_value = Number(m1) / Number(m2);
+	document.frm.m_result.value = m_value;
+	//alert(m1 + "%" + m2 + "=" + m_value);
+}
+</script>
+
+ </body>
+</html>

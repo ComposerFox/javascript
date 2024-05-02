@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+/*
+	1.커피종류선택
+	2.커피크기선택
+	3.커피단맛선택
+*/
+
+var coffee_kind = prompt("1.맥심믹스 2.카누카푸치노 3.마일드 \n 기본은 1번입니다.","");
+var coffee_size = prompt("1.벤티 2.그란데 3.톨 \n 기본은 2번입니다.");
+var coffee_sweet = prompt("1.기본단맛 2.약간단맛 3.아주단맛 \n 기본은 1번입니다.","");
+
+// !는 부정의 의미로 not 이라고 읽음 1이아니거나 2가아니거나 3이아니면
+if( coffee_kind != "1" && coffee_kind != "2" && coffee_kind != "3") {
+	coffee_kind = 1;
+}
+if( coffee_size != "1" && coffee_size != "2" && coffee_size != "3") {
+	coffee_size = 2;
+}
+if( coffee_sweet != "1" && coffee_sweet != "2" && coffee_sweet != "3") {
+	coffee_sweet = 1;
+}
+
+var kind_value = "";
+var size_value = "";
+var sweet_value = "";
+
+if( coffee_kind == 1 ) kind_value = "믹스커피";
+else if( coffee_kind == 2 ) kind_value = "카푸치노";
+else kind_value = "마일드";
+
+if( coffee_size == 1 ) size_value = "벤티";
+else if( coffee_size == 2 ) size_value = "그란데";
+else size_value = "톨";
+
+if( coffee_sweet == 1 ) sweet_value = "기본단맛";
+else if( coffee_sweet == 2 ) sweet_value = "약간단맛";
+else sweet_value = "아주단맛";
+
+/*
+document.write( kind_value + " " + size_value + "사이즈로 " + sweet_value + "을 선택했습니다.");
+*/
+
+var result = kind_value + " " + size_value + "사이즈로 " + sweet_value + "을 선택했습니다.";
+
+var conf = confirm( result ); // 확인취소창
+
+if( conf == true ) {
+	document.write("감사합니다. 대기해주세요.");
+} else if( conf == false ) {
+	document.write("취소하셨습니다. 다시 시도해주세요.");
+}
+
+</script>
+ </body>
+</html>

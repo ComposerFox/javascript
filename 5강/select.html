@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>select 상자체크</title>
+ </head>
+ <body>
+<form name = "myform" method = "post" action = "save.jsp">
+	아이디 <input type = "text" name = "userid"><br>
+	출생년도 (단일선택)
+	<select name = "year">
+		<option value = "" > -년도- </option>
+		<option value = "1990">1990</option>
+		<option value = "1991">1991</option>
+		<option value = "1992">1992</option>
+	</select>
+	<br>
+	취미선택 (다중가능)
+	<select name = "hobby" size = "5" multiple>
+		<option value = "공부">공부</option>
+		<option value = "야구">야구</option>
+		<option value = "농구">농구</option>
+		<option value = "배구">배구</option>
+		<option value = "축구">축구</option>
+	</select>
+	<br><br>
+	<button type = "button" onclick = "fn_action()">전송</button>
+</form>
+
+<script>
+
+function fn_action() {
+	let userid = document.myform.userid.value;
+	let year = document. myform.year.value;
+	let hobby = document.myform.hobby.value;
+	
+	/* if(userid === "") {
+		alert("아이디를 입력해주세요.");
+		document.myform.userid.focus();
+		return false;
+	}
+	if(year === "") {
+		alert("출생년도를 선택해주세요.");
+		document.myform.year.focus();
+		return false;
+	}
+	if(hobby === "") {
+		alert("취미를 선택해주세요.");
+		document.myform.hobby.focus();
+		return false;
+	} */
+	
+	
+	
+	/* alert(document.myform.hobby[0].selected);
+	alert(document.myform.hobby[1].selected); */
+	
+	let values = "";
+	let len = document.myform.hobby.length;
+
+	for(var i = 0; i < len; i++) {
+		if(document.myform.hobby[i].selected == true) {
+			values = values + document.myform.hobby[i].value;
+			values = values + ",";
+		}
+	}
+
+	// values = "공부,야구,농구,";
+	
+	let values_len = values.length;
+
+	values = values.substring(0,values_len-1);
+
+	if(confirm(values)) { // [확인][취소]
+		document.myform.submit();
+	} else {
+		alert("취미를 다시 선택해주세요.");
+	}
+
+
+	//alert("userid:" + userid + ", year:" + year + ",hobby:" + hobby);
+}
+
+</script>
+
+ </body>
+</html>

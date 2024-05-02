@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+document.write("<table border = '1' width = '200'>");
+	document.write("<tr align = 'center'>");
+
+		for(var i = 1; i <= 20; i++) {
+			document.write("<td>" + i + "</td>");
+		}
+
+	document.write("</tr>");
+document.write("</table>");	
+
+document.write("<hr>");
+
+document.write("<table border = '1' width = '200'>");
+	
+	document.write("<tr align = 'center'>");
+
+		for(var a = 1; a <= 20; a++) {			
+			document.write("<td>" + a + "</td>");	
+			if(a % 5 == 0) {	// a == 5 || a == 10 || a == 15
+				document.write("</tr>")
+				document.write("<tr align = 'center'>");
+			}
+		}
+
+	
+	document.write("</tr>");
+	
+document.write("</table>");	
+
+</script>
+
+ </body>
+</html>

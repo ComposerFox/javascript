@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+   <!-- 이벤트 핸들러 : onclick() 등등 -->
+   <h2>인사버튼</h2>
+<input type = "button" value  = "아침인사(영어)" onclick = "alert('good morning');">
+<input type = "button" value  = "아침인사(일본)" onclick = "alert('오하요우');">
+<input type = "button" value  = "아침인사(중국)" onclick = "alert('니하우');">
+
+<h2>계산버튼</h2>
+<input type = "button" value  = "1+1은?" onclick = "alert(1+1);">
+<input type = "button" value  = "프롬프트창" onclick = "fn_test1()">
+
+<script>
+
+
+// 단일 매개변수
+function fn_test1() {
+	// 변수타입 : var(반복선언가능), let(반복선언불가능), const(상수)
+	let a = prompt("값입력1","");
+	let b = prompt("값입력2","");
+	alert(Number(a) + Number(b));
+}
+
+</script>
+
+ </body>
+</html>

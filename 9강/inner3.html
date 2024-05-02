@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<p>
+	<button type = "button" onclick = "fn_test1()">크게1</button>
+	<button type = "button" onclick = "fn_test2()">크게2</button>
+</p>
+<div id = "test">수박</div>
+
+<script>
+
+function fn_test1() {
+	document.querySelector("#test").innerHTML = "<h1>수박</h1>";
+}
+function fn_test2() {
+	document.querySelector("#test").innerText = "<h1>수박</h1>";
+}
+
+</script>
+
+ </body>
+</html>

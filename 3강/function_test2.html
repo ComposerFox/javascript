@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+body {
+	line-height:3.0;
+}
+.input1 {
+	width:215px;
+	height:30px;
+	font-size:12px;
+}
+.button1 {
+	width:50px;
+	height:40px;
+	font-size:12px;
+}
+.button2 {
+	width:150px;
+	height:30px;
+	font-size:12px;
+}
+.button3 {
+	width:65px;
+	height:30px;
+	font-size:12px;
+}
+</style>
+ </head>
+ <body>
+  <form name = "frm" method = "post" action = "" align = "center">
+
+<input type = "text" name = "screen" class = "input1" readonly>
+<br>
+<button type = "button" class = "button1" onclick = "fn_add('1')"> 1 </button>
+<button type = "button" class = "button1" onclick = "fn_add('2')"> 2 </button>
+<button type = "button" class = "button1" onclick = "fn_add('3')"> 3 </button>
+<button type = "button" class = "button1" onclick = "fn_add('+')"> + </button>
+<br>
+<button type = "button" class = "button1" onclick = "fn_add('4')"> 4 </button>
+<button type = "button" class = "button1" onclick = "fn_add('5')"> 5 </button>
+<button type = "button" class = "button1" onclick = "fn_add('6')"> 6 </button>
+<button type = "button" class = "button1" onclick = "fn_add('-')"> - </button>
+<br>
+<button type = "button" class = "button1" onclick = "fn_add('7')"> 7 </button>
+<button type = "button" class = "button1" onclick = "fn_add('8')"> 8 </button>
+<button type = "button" class = "button1" onclick = "fn_add('9')"> 9 </button>
+<button type = "button" class = "button1" onclick = "fn_add('*')"> * </button>
+<br>
+<button type = "button" class = "button1" onclick = "fn_clear()">Clear</button>
+<button type = "button" class = "button1" onclick = "fn_add('0')"> 0 </button>
+<button type = "button" class = "button1" onclick = "fn_add('.')"> . </button>
+<button type = "button" class = "button1" onclick = "fn_add('/')"> / </button>
+<br>
+<button type = "button" class = "button2" onclick = "fn_result()"> = </button>
+<button type = "button" class = "button3" onclick = "fn_back()">Back</button>
+
+
+</form>
+
+<script>
+
+function fn_add(n) { // 매개변수 : 외부데이터 값을 받는 변수 == let n = "";
+	let content = document.frm.screen.value; // 현재 값
+	let a = content.substring(content.length-1 ,content.length);
+	let bool = true;
+	if(( a == "+" || a == "-" || a == "*" || a == "/" ) &&
+	   ( n == "+" || n == "-" || n == "*" || n == "/" ))
+	{
+		bool = false;
+	}
+	if(bool == true) {
+		content = content + n; // 기존(현재) 값에 새로운 값을 연결한다.
+		document.frm.screen.value = content;
+	}
+}
+
+function fn_result() {
+	let content = document.frm.screen.value; // 현재 값
+	let result = eval(content); // eval : 연산처리함수
+	document.frm.screen.value = result;
+}
+
+function fn_clear() {
+	document.frm.screen.value = "";
+}
+
+
+function fn_back() {
+	let content = document.frm.screen.value; // 현재창의 입력된 값을 가져옴
+	content = content.substring(0,content.length-1); // 마지막값을 제외하고 가져옴							 
+	document.frm.screen.value = content;	 // 마지막값이 제외된 문자열을 다시 현재창에 재입력함
+}
+
+</script>
+ </body>
+</html>

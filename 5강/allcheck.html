@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<form name = "myform">
+
+<input type = "checkbox" name = "allchk" onclick = "fn_allcheck()">전체선택/해제 <br><br>
+
+<input type = "checkbox" name = "chk">항목1 <br>
+<input type = "checkbox" name = "chk">항목2 <br>
+<input type = "checkbox" name = "chk">항목3 <br>
+<input type = "checkbox" name = "chk">항목4 <br>
+<input type = "checkbox" name = "chk">항목5
+
+</form>
+
+<script>
+
+function fn_allcheck() {
+	let allcheck = document.myform.allchk.checked;
+	
+	let len = document.myform.chk.length; // 개수
+	
+	for(let i = 0; i < len; i++) {
+		document.myform.chk[i].checked = allcheck;
+	}
+}
+
+</script>
+
+ </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>memberWrite</title>
+ </head>
+
+<style>
+table {
+	width:510px;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+tr,td {
+	border:1px solid #ccc;
+	padding:5px;
+}
+</style>
+
+ <body>
+  
+	<table border = "0"
+		   align = "center">
+	  <tr>
+	  	<td>
+
+		<font color = "#009900">
+		<table border = "0"
+			   cellpadding = "10"
+			   cellspacing = "1"
+			   bgcolor = "#cccccc">
+
+			<tr bgcolor = "#ffffff">	
+				<th width = "150"><a href = "loginWrite.html">로그인</th>
+				<th width = "150" bgcolor = "#3399ff"><a href = "meberAgree.html">회원가입</th>
+				<th width = "150"><a href = "boardList.html">게시판</th>
+			</tr>
+
+		</table>
+		</font>
+		<br><br>
+		
+		<form name = "frm" method = "get" action = "memberWriteSave.jsp" autocomplete = "on">
+
+			<table>
+				
+				<tr bgcolor = "#ffffff">
+					<th>아이디</th>
+					<td>
+						<input type = "text" name = "user_id" 
+							   maxlength = "20" autofocus placeholder = "아이디를 입력해주세요.">
+						<input type = "button" value = "중복체크">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>암호</th>
+					<td>
+						<input type = "password" name = "user_pass" 
+							   placeholder = "암호를 입력해주세요.">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>이메일</th>
+					<td>
+						<input type = "email" name = "email">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>이름</th>
+					<td>
+						<input type = "text" name = "name">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>성별</th>
+					<td>
+						<input type = "radio" name = "gender" value = "M">남
+						<input type = "radio" name = "gender" value = "F">여
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>학년</th>
+					<td>
+						<input type = "radio" name = "grade" value = "1">1학년
+						<input type = "radio" name = "grade" value = "2">2학년
+						<input type = "radio" name = "grade" value = "3">3학년
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>생일</th>
+					<td>
+						<input type = "date" name = "birthday">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>지역</th>
+					<td>
+						<select name = "area">
+							<option value = "서울">서울</option>
+							<option value = "경기">경기</option>
+							<option value = "천안" selected>천안</option>
+						</select>
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>좋아하는색</th>
+					<td>
+						<input type = "color" name = "color">
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>영어점수</th>
+					<td>
+						<input type = "range" name = "eng" min = "0" max = "100"
+							   list = "scorelist" step = "1" value = "0">
+							   <datalist id = "scorelist">
+								<option value = "0"/>
+								<option value = "10"/>
+								<option value = "20"/>
+								<option value = "30"/>
+								<option value = "40"/>
+								<option value = "50"/>
+								<option value = "60"/>
+								<option value = "70"/>
+								<option value = "80"/>
+								<option value = "90"/>
+								<option value = "100"/>
+					</td>
+				</tr>
+				<tr bgcolor = "#ffffff">
+					<th>수학점수</th>
+					<td>
+						<input type = "number" name = "math">
+					</td>
+				</tr>
+				
+				
+			</table>
+			<br><br>
+					<div style = "text-align:center;">
+						<input type = "submit" value = "저장" 
+							   onclick = "fn_action(); return false">
+						<input type = "reset" value = "취소">
+					</div>
+
+		</form>
+	
+		
+
+
+	</table>
+
+<script>
+
+function fn_action() {
+	if(document.frm.user_id.value == "") {
+		alert("아이디를 입력해주세요.");
+		document.frm.user_id.focus();
+		return false;
+	}
+	if(document.frm.user_id.value.length < 6 || // 값개수 체크
+	   document.frm.user_id.value.length > 20) {
+		   alert("아이디는 6자~20자 사이로 작성해주세요.");
+		   document.frm.user_id.focus();
+		   return false;
+	}
+	if(document.frm.user_pass.value == "") {
+		alert("암호를 입력해주세요.");
+		document.frm.user_pass.focus();
+		return false;
+	}
+	if(document.frm.email.value == "") {
+		alert("이메일을 입력해주세요.");
+		document.frm.email.focus();
+		return false;
+	}
+	if(document.frm.name.value == "") {
+		alert("이름을 입력해주세요.");
+		document.frm.name.focus();
+		return false;
+	}
+	if(document.frm.gender[0].checked == false && // false = 체크가 안되어있다는 뜻
+	   document.frm.gender[1].checked == false) {
+		alert("성별을 체크해주세요.");
+		return false;
+	}
+	if(document.frm.grade[0].checked == false &&
+	   document.frm.grade[1].checked == false &&
+	   document.frm.grade[2].checked == false) {
+		alert("학년을 체크해주세요.");
+		return false;
+	}
+	if(document.frm.name.value == "") {
+		alert("이름을 입력해주세요.");
+		document.frm.name.focus();
+		return false;
+	}
+	document.frm.submit();
+}
+
+</script>
+
+ </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<div id = "subject">
+	<h3>java,oracle</h3>
+</div>
+<button type = "button" onclick = "fn_getText()">inner Text</button>
+<button type = "button" onclick = "fn_getHTML()">inner HTML</button>
+
+<script>
+
+function fn_getText() {
+	let e = document.getElementById("subject");
+	alert(e.innerText);
+}
+function fn_getHTML() {
+	let e = document.getElementById("subject");
+	alert(e.innerHTML);
+}
+
+</script>
+
+ </body>
+</html>

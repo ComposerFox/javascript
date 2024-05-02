@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+
+var n = 1;
+n++;
+n += 1;
+n = n + 1;
+document.write("n : " + n + "<br>"); // 4
+
+var m = 1;
+m += 2;
+m = m + 2;
+document.write("m : " + m); //5
+
+document.write("<hr>");
+/*
+var name = prompt("학생명 입력");
+document.write("학생명 : " + name);
+
+document.write("<hr>");
+*/
+// prompt 값은 문자열
+var eng = prompt("영어점수는?","2");
+var kor = prompt("국어점수는?",2);
+var math = prompt("수학점수는?",1);
+// Number 함수 : 문자타입 값을 숫자타입 값으로 변환 처리
+var hap = Number(eng) + (kor) + (math);
+var avg = hap/2;
+
+document.write("총점 : " + hap + "<br>");
+document.write("평균 : " + avg + "<br>");
+
+</script>
+ </body>
+</html>

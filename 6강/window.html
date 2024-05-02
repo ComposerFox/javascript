@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>popup창</title>
+ </head>
+ <body>
+  
+<button type = "button" onclick = "fn_action1()">daum열기</button>
+<button type = "button" onclick = "fn_action2()">naver열기</button>
+
+
+
+
+<script>
+
+function fn_action1() {
+	// window.open("주소","별칭","옵션들");
+	
+	let screen_width = window.screen.width/2 - 250;
+	let screen_height = window.screen.height/2 - 200;
+
+	window.open("http://daum.net","popup1",
+				"width = 500, height = 400, left =" + screen_width + ",top =" + screen_height);
+
+	//alert(screen_width + " , " + screen_height);
+}
+
+function fn_action2() {
+	let url = "http://naver.com"
+	window.open(url,"popup2","width = 500,height = 400");
+}
+
+</script>
+ 
+ </body>
+</html>

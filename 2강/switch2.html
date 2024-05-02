@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+
+var game = prompt("번호입력 (1 ~ 5)");
+
+var gameScore = parseInt( game );
+
+switch( gameScore ) {
+	case 1 : document.write("1 : 500원 내기");
+	break;
+	case 2 : document.write("2 : 1000원 내기");
+	break;
+	case 3 : document.write("3 : 심부름 가기");
+	break;
+	case 4 : document.write("4 : 2000원 내기");
+	break;
+	case 5 : document.write("5 : 축 !! 돈안내도 됨");
+	break;
+	default : document.write('"다시 시도해주세요."');
+}
+
+</script>
+ </body>
+</html>

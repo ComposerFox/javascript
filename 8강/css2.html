@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<div id = "box1">
+	<h1>테스트영역</h1>
+</div>
+<button type = "button" onclick = "fn_action()">실행</button>
+
+
+<script>
+
+function fn_action() {
+	let box = document.getElementById("box1");
+	box.style.backgroundColor = "blue";
+	box.style.color = "#fff";
+	box.style.width = "100px";
+	box.style.height = "100px";
+	box.style.border = "1px solid #111";
+	box.style["borderColor"] = "red";
+	box.style["margin-left"] = "30px";
+}
+
+</script>
+
+ </body>
+</html>

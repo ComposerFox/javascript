@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+/*
+var a = 1;
+	a = a + 1;
+	a++
+*/
+			//1
+for(var i = 1; i <= 31; i++) {
+	document.write(i + "일");
+}
+
+document.write("<hr>");
+			//2
+for(var n1 = 1; n1 <= 100; n1 = n1 + 2) {  // 방법1
+	document.write(n1 + " ");
+}
+
+document.write("<br>");
+
+for(var n2 = 1; n2 <= 100; n2++) {		//방법2
+	if(n2 % 2 == 1) {
+		document.write(n2 + " ");
+	}
+}
+
+document.write("<hr>");
+			//3
+for(a1 = 3; a1 <= 100; a1 = a1 + 3) {  // 방법1
+	document.write(a1 + " ");
+}
+
+document.write("<br>");
+
+for(var a2 = 3; a2 <= 100; a2++) {  // 방법2
+	if(a2 % 3 == 0) {
+		document.write(a2 + " ");
+	}
+}
+
+document.write("<hr>");
+			//4
+for(var day = 1; day <= 31; day++) {	
+	document.write(day + "일 ");
+	if(day % 7 == 0) {						// if(day == 7 || day == 14 || day == 21 || day == 28 ||)
+		document.write("<br>");
+	}
+}
+
+
+
+</script>
+ </body>
+</html>

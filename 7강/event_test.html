@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<form name = "frm">
+
+주소1 <input type = "text" name = "addr1" value = "" onkeyup = "fn_action()"><br>
+주소2 <input type = "text" name = "addr2" value = "" readonly><br>
+	<input type = "checkbox" name = "chk" onclick = "fn_copy()"> 기본주소와 동일하게 적용 <br>
+주소3 <input type = "text" name = "addr3" value = "">
+
+<hr>
+
+아이디 <input type = "text" name = "user_id" onblur = "fn_userid()" autofocus>
+이름	 <input type = "text" name = "name">
+
+</form>
+
+<script>
+
+function fn_action() {
+	document.frm.addr2.value = document.frm.addr1.value;
+}
+
+function fn_copy() {
+	let bool = document.frm.chk.checked;
+	if(bool == true) {
+		document.frm.addr3.value = document.frm.addr1.value;
+	} else {
+		document.frm.addr3.value = "";
+	}
+}
+
+function fn_userid() {
+	let userid = document.frm.user_id.value;
+	if( userid == "" ) {
+		alert("아이디를 입력해주세요.");
+		return false;
+	} else {
+		alert(userid + "를 입력했네요.")
+	}
+}
+
+</script>
+
+ </body>
+</html>

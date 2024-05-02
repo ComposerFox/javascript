@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<form name = "myform" method = "post" action = "">  
+	
+	다음 중 제일 좋아하는 색은? <br>
+
+	(1) <input type = "radio" name = "chk" value = "1"> 빨간색 <br>
+	(2) <input type = "radio" name = "chk" value = "2"> 주황색 <br>
+	(3) <input type = "radio" name = "chk" value = "3"> 노란색 <br>
+	(4) <input type = "radio" name = "chk" value = "4"> 초록색 <br>
+	(5) <input type = "radio" name = "chk" value = "5"> 파란색 <br>
+	(6) <input type = "radio" name = "chk" value = "6"> 보라색 <br><br>
+	<button type = "button" onclick = "fn_action()">투표</button>
+	
+	</form>
+
+<script>
+
+function fn_action() {
+	
+	let len = document.myform.chk.length;
+	let number = 1;
+	for(var i = 0; i < len; i++) {
+		if(document.myform.chk[i].checked == true) {
+			number = 2;
+		}
+	}
+	if(number == 1) {
+		alert("문항을 다시 확인해주세요.");
+		return false;
+	} else {
+		if(confirm("선택한 색으로 투표를 진행하시겠습니까?")){
+			document.myform.submit(); 
+		}
+	}
+}
+
+/*	if(document.myform.chk[0].checked == false &&
+	   document.myform.chk[1].checked == false &&
+       document.myform.chk[2].checked == false &&
+	   document.myform.chk[3].checked == false &&
+	   document.myform.chk[4].checked == false &&
+	   document.myform.chk[5].checked == false)
+	{
+		alert("문항을 다시 확인해주세요.");
+		return false;
+	} */
+	
+
+</script>
+
+ </body>
+</html>

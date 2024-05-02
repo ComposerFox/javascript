@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<form name = "myform" method = "post" action = "">
+
+<p>
+1. 첫번째 약관 <br>
+<iframe src = "message1.txt" width = "500" height = "300"></iframe> <br>
+<input type = "checkbox" name = "chk"> 약관에 동의함.
+</p>
+<p>
+2. 두번째 약관 <br>
+<iframe src = "message2.txt" width = "500" height = "300"></iframe> <br>
+<input type = "checkbox" name = "chk"> 약관에 동의함.
+</p>
+<button type = "button" onclick = "fn_action()">동의하기</button>
+
+</form>
+
+<script>
+
+function fn_action(){
+	/*
+	if(document.myform.chk[0].checked == false ||
+	   document.myform.chk[1].checked == false) {
+		alert("약관을 모두 체크해주세요.");
+		return false;
+	}
+	*/
+	let len = document.myform.chk.length;
+
+	for(let i = 0; i < len; i = i + 1) {
+		if(document.myform.chk[i].checked == false) {
+			alert("약관을 모두 체크해주세요.");
+			return false;
+		}
+	}
+	location.href = "memberWrite.html"; // location : 페이지이동
+}
+
+</script>
+
+ </body>
+</html>

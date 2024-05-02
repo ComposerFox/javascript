@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+
+document.write("<table border = '1' width = '200'>");
+	
+	document.write("<tr align = 'center'>");
+
+		for(var a = 1; a <= 31; a++) {			
+			document.write("<td>" + a + "</td>");	
+			if(a % 7 == 0) {	
+				document.write("</tr>")
+				document.write("<tr align = 'center'>");
+			}
+		}
+
+	
+	document.write("</tr>");
+	
+document.write("</table>");	
+
+</script>
+ </body>
+</html>

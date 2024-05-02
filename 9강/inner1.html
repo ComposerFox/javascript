@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+
+<style>
+
+#title {
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}
+
+</style>
+
+ <body>
+  
+<span id = "title"> 과목 </span>
+<br>
+<span id = "box"></span>
+<br>
+<button type = "button" onclick = "fn_text()">제목바꾸기</button>
+
+<script>
+
+function fn_text() {
+	document.getElementById("title").innerText = "ABC";
+	document.getElementById("box").innerHTML += "<input type = 'text' name = 'a1'>";
+}
+
+</script>
+
+ </body>
+</html>

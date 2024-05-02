@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv = "refresh" content = "1; url = day.html">
+ </head>
+ <body>
+  
+<script>
+		// Date 클래스를 객체화한다.
+let cal = new Date();
+
+let year = cal.getFullYear();	// 년도
+let month = cal.getMonth() + 1;	// 월
+let date = cal.getDate();	// 날짜
+let day = cal.getDay();	// 요일
+
+let hours = cal.getHours();
+let minutes = cal.getMinutes();
+let seconds = cal.getSeconds();
+
+document.write(year + '년' + month + '월' + date + "일");
+document.write('<br>');
+document.write(hours + ":" + minutes + ":" + seconds);
+document.write('<br>');
+document.write(day);
+document.write('<hr>');
+
+let day2 = "";
+switch(day) {
+	case 0 : day2 = "일요일";
+	break;
+	case 1 : day2 = "월요일";
+	break;
+	case 2 : day2 = "화요일";
+	break;
+	case 3 : day2 = "수요일";
+	break;
+	case 4 : day2 = "목요일";
+	break;
+	case 5 : day2 = "금요일";
+	break;
+	case 6 : day2 = "토요일";
+	break;
+
+}
+document.write(day2);
+
+</script>
+
+ </body>
+</html>
