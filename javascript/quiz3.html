@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1. 임시 비번 만들기 8자리
+        // 1-1 숫자로
+        let num;
+        let num1 = [];
+        for(let i = 0; i < 8; i++) {
+            num = parseInt(Math.random() * 9) + 1;
+            num1.push(num);
+        }
+        console.log("임시비밀번호(숫자)", num1.join());
+        
+        // 1-2 소문자만
+        let str;
+        let str2 = [];
+        let str3 = [];
+        let num_st;
+        let num_st2 = [];
+        for(let i = 65; i < 91; i++) {
+            str = String.fromCodePoint(i);
+            str2.push(str);
+        }
+        for(let i = 0; i < 8; i++) {
+            num_st = parseInt(Math.random() * 25) + 1;
+            num_st2.push(num_st);
+        }
+        for(let i = 0; i < 8; i++) {
+            str3.push(str2[num_st2[i]]);
+        }
+        str3 = str3.join();
+        console.log("임시비밀번호(소문자)", str3.toLowerCase());
+        
+        // 1-3 숫자2개, 대소문자 하나 이상 조합
+
+        // 3. 이름의 두번째 글자를 *로 가리기 : 이*현
+        let name = "이성현";
+        let chan = "*";
+        name = name.replace(name[1], chan);
+        console.log(name);
+
+        // 4. 전화번호 -와 -사이를 *로 가리기
+        let call = "010-5553-7887";
+        let call_arr = call.split("-");
+        let call_result = call_arr[0] + chan + call_arr[1] + chan + call_arr[2];
+        console.log(call_result);
+
+        // 5. blog.naver.com에서 naver만 추출하기
+        let url = "blog.naver.com";
+        let urlAdr = url.slice(url.indexOf(".")+1, url.indexOf(".c"));
+        console.log(urlAdr);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 내 컴퓨터 시간
+
+        let date = new Date();
+        console.log(date);
+
+        // 년도
+        let y = date.getFullYear();
+        console.log(y);
+        // new Date().getFullYear();
+
+        // 월(0-11)
+        let M = date.getMonth();
+        console.log("월", M+1);
+
+        // 일
+        let d = date.getDate();
+        console.log("일 :", d);
+
+        // 요일(일0 ~ 토6)
+        let w = date.getDay();
+        console.log("요일 :", w);
+
+        // 시(24시간)
+        let h = date.getHours();
+        console.log("시간 :", h);
+
+        // 분
+        let m = date.getMinutes();
+        console.log("분 :", m);
+
+        // 초
+        let s = date.getSeconds();
+        console.log("초 :", s);
+
+        console.log(date.toString());
+        console.log(date.toISOString());
+        
+        // timestamp, 1970년 1월 1일 자정 기준으로 지금까지 지난 초
+        console.log(date.getTime());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

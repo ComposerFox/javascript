@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+        .day {
+            border: 1px solid red;
+            width: 1000px;
+            margin: 0 auto;
+        }
+        ul {
+            padding: 0;
+            display: flex;
+        }
+        ul li {
+            list-style: none;
+            flex-shrink: 1;
+            flex-grow: 1;
+
+            margin: 0 10px;
+        }
+        ul li img {
+            width: 100%;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <h1>휴먼 웹툰</h1>
+    <div class="day">
+        <h2>목요 웹툰</h2>
+        <ul id="list">
+            
+        </ul>
+    </div>
+
+    <script>
+
+        // 배열: 이미지와 제목
+        
+        let listToon = [];
+        let toon = ["https://comicthumb-phinf.pstatic.net/20200430_285/pocket_1588222859133WDaUT_JPEG/_690x100.jpg?type=m480", "연애혁명"];
+        listToon.push(toon);
+        toon = ["https://image-comic.pstatic.net/webtoon/795257/thumbnail/thumbnail_IMAG21_4122871956781675057.jpg", "옥타곤의 제왕"];
+        listToon.push(toon);
+        toon = ["https://comicthumb-phinf.pstatic.net/20200430_285/pocket_1588222859133WDaUT_JPEG/_690x100.jpg?type=m480", "연애혁명"];
+        listToon.push(toon);
+        toon = ["https://image-comic.pstatic.net/webtoon/795257/thumbnail/thumbnail_IMAG21_4122871956781675057.jpg", "옥타곤의 제왕"];
+        listToon.push(toon);
+
+        // ul을 선택하고
+        let list = document.querySelector("#list");
+        // 자식요소에서 부모요소를 찾아줌
+        console.log(list.parentNode);
+
+        // li를 만들고 - 배열을 이용해서
+        let html = "";
+        /*
+        html += '<li>
+        html += '    <img src="https://comicthumb-phinf.pstatic.net/20200430_285/pocket_1588222859133WDaUT_JPEG/_690x100.jpg?type=m480">
+        html += '    <br>
+        html += '    <strong>연애혁명</strong>
+        html += '</li>
+        */
+
+        for(let i = 0; i < listToon.length; i++) {
+            html += '<li>';
+            html += '    <img src="'+ listToon[i][0] +'">';
+            html += '    <br>';
+            html += '    <strong>'+ listToon[i][1] +'</strong>';
+            html += '</li>';
+        }
+
+        // 추가
+        list.innerHTML = html;
+
+    </script>
+
+</body>
+</html>

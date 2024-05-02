@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // 1. 15와 20이 주어졌을때 세번째값이 그 사이에 있는지 확인
+        let i = 16;
+        let j = Boolean;
+        if(i > 15 && i < 20) {
+            j = true;
+            console.log(j);
+        } else{
+            j = false;
+            console.log(j);
+        }
+
+        // 2. 사각형의 좌상단좌표, 우하단좌표가 있고 점의 좌표가 있을때 그 점이
+        //    사각형에 포함 되는지 확인
+
+
+        // 3. 1~100까지 합계 구하기
+        let o = 0;
+        for(let u = 1; u <= 100; u++) {
+            o = o + u;
+        }
+        console.log(o);
+
+        // 4. 1~100까지 짝수의 합계 구하기
+
+        o = 0;
+        for(let u = 1; u <= 100; u++) {
+            if(u % 2 == 0) {
+                o = o + u;
+            }
+        }
+        console.log(o);
+        
+        // 5. 구구단 2~3단씩 출력
+
+        for(let s = 2; s < 10; s += 2) {      
+            for(let s1 = 1; s1 < 10; s1++) {
+                document.write(s + "x" + s1 + "=" + (s * s1) + " ");
+                document.write((s + 1) + "x" + s1 + "=" + ((s + 1) * s1));
+                document.write("<br>");
+            }
+        }
+        
+        // 6. 숫자 배열이 있을때 최대값 구하기(단, sort쓰지 말고)
+        let arr = [3, 4, 5, 7, 1];
+        let result = [];
+        let result2 = [];
+        
+        for(let k = 0; k <= arr.length; k++) {
+            for(let p = 1; p <= arr.length; p++) {
+                if(arr[k] > arr[p]) {
+                    let arr2 = arr.slice(k, (k+1));
+                    console.log(arr2);
+                }
+                
+            }       
+        }
+        
+        /*
+        for(let k = 0; k <= arr.length; k++) {
+            for(let p = 1; p <= arr.length; p++) {
+                if(arr[k] > arr[p]) {
+                    result.push(arr[k]);
+                    break;   
+                }
+                break;
+            }       
+        }
+        console.log(result);
+        for(let k = 0; k <= result.length; k++) {
+            for(let p = 1; p <= result.length; p++) {
+                if(arr[k] > arr[p]) {
+                    result2.push(arr[k]);   
+                }
+            }       
+        }
+        console.log(result2);
+        */
+
+        // 7. 두번째 최대값 구하기
+
+
+        // 8. 내림차순 정렬
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

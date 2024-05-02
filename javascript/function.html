@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // 두개의 전달인자를 받아서
+        // 더하고
+        // 더한값을 돌려주는 함수
+
+        // 함수명 : sum
+        // 전달인자 : x, y 둘다 숫자
+        // 리턴 : x와 y의 합
+        function sum(x, y) {
+            console.log(`x: ${x}, y: ${y}`);
+            let z = x + y;
+            console.log(`isNaN(z)`,isNaN(z));
+            return z;
+        }
+
+        let result = sum(10, 20);
+        console.log(result);
+
+        result = sum(15);
+        console.log(result);
+        
+        result = sum(100, 200, 400);
+        console.log(result);
+
+        console.log(sum);
+        // sum = 1;
+        // console.log(sum);
+
+        let sum2 = sum;
+        console.log(sum2(1, 2));
+
+        // sum에 방어코딩 추가
+        function sum3(x, y) {
+            console.log(x, y);
+            
+            if(x == undefined) {
+                x = 0;
+            }
+            if(y == undefined) {
+                y = 0;
+            }
+            console.log(`x: ${x}, y: ${y}`);
+
+            let z = x + y;
+            console.log(`isNaN(z)`,isNaN(z));
+            return z;
+        }
+        sum3();
+
+        function sum4(x = -1, y = -1) {
+            console.log(`x: ${x}, y: ${y}`);
+            let z = x + y;
+            console.log(`isNaN(z)`,isNaN(z));
+            return z;
+        }
+        sum4(5);
+
+        function sum5() {
+            console.log(arguments);
+            for(let arg of arguments) {
+                console.log(arg);
+            }
+        }
+        sum5(1, 2, 3);
+
+        function sum6(x, ...num) {
+            console.log(x, num);
+            }
+        sum6(1, 2);
+        sum6(1, 2, 3, 4);
+
+        console.log("=================");
+        let a = [1, 2, 3, 4];
+        console.log(a);
+        console.log(...a);
+        sum(...a);
+
+        eval("console.log('-------------')");
+
+        console.log(encodeURI("한글"));
+        console.log(decodeURI("%ED%95%9C%EA%B8%80"));
+        
+        // 전달인자로 함수를 전달할수 있다.(실행할수 있다.)
+        // 그 함수를 callback함수 라고한다.
+        function sum7(cb) {
+            console.log(typeof cb);
+            if(typeof cb == "function") {
+                let result = cb(2, 3);
+                console.log(result);
+            }
+        }
+        sum7(sum);
+
+        // 익명 함수
+        let sum8 = function (x, y) {
+            return x + y;
+        }
+        // sum7(sum8)
+        sum7(function (x, y) {
+            return x + y;
+        });
+
+        // arrow function 화살표 함수
+        let fn1 = function (x, y) {
+            return x + y;
+        }
+
+        fn1 = (x, y) => {
+            return x + y;
+        }
+
+        fn1 = (x) => {
+            return x * x;
+        }
+        // 전달인자가 하나만 있는 경우 괄호 생략 가능
+        fn1 = x => {
+            return x * x;
+        }
+        // 실행블럭의 내용이 딱 한줄인 경우 {}생략가능 
+        // 생략할경우 'return' 생략 필수
+        fn1 = x => x * x;
+
+        fn1 = (x, y) => x + y;
+
+        console.log("before");
+        // 첫번째 전달인자 : 콜백함수
+        // 두번째 전달인자 : 시간(밀리초ms, 1000ms = 1s)
+        // 지정 시간 이후 딱 한번만 실행 됨
+        // 60 * 60 * 24
+        // 하루에 86400초
+        let idx1 = setTimeout(function() {
+            console.log("print 1");
+        }, 3 * 1000);
+
+        console.log("after");
+        console.log("idx1 :", idx1);
+
+        // idx1에 해당하는 setTimeout 기능 정지
+        clearTimeout(idx1);
+
+        let idx2 = setInterval(function() {
+            console.log("print 2");
+        }, 300);
+
+        console.log("idx2 :", idx2);
+        clearInterval(idx2);
+
+        // 종료시점을 알면 for문
+        // 종료시점이 명확하지 않으면 while문
+        let now = new Date().getTime();
+        let after = 0;
+        while(after - now < 3000) {
+            after = new Date().getTime();
+            console.log(after - now);
+        }
+        console.log("print 3");
+
+        do {
+            console.log("print 4");
+        } while(false);
+
+        // for(/*초기화식*/;/*조건식*/;/*증감식*/) { } 
+        // 조건은 필수값이 아니다 조건을 달지않으면 do while true값과 같음
+        for(;;) {
+            console.log(new Date().getTime());
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

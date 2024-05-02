@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+            crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            init();
+            bind();
+        });
+        function init() {
+
+            //  jQuery 객체
+            // 배열형태로 관리된다
+            console.log(1, $("h1"))
+
+            // debugger;   // 디버거전에는 실행되고 디버거를 만나면 멈춘다(개발자모드에서만)
+
+            // 배열의 값은 순수한 javascript다
+            console.log(2, $("h1")[0])
+
+            // h1 전체선택해서 가져옴
+            // $("h1").text("싹다변경");
+            $("h1").html("<a href='javascript:void(0)'>싹다변경</a>");
+
+            // 아이디 p의 css를 변경해준다
+            $("#p").css("border", "1px solid red");
+
+            // 아이디 선택해서 가져옴
+            let html = "<div>자식 2</div>"
+            // 자식에 추가
+            // 변수 html을 가져와서 아이디#p 맨위로 올려줌
+            $("#p").append(html);
+            // h1의 배열 0번째를 아이디p 맨밑에 넣어준다 
+            $("#p").prepend($("h1")[0]);
+
+            // 자식(내용물) 지우기
+            // .innerHTML = ""
+            $("#p").empty();    // 아이디p의 자식요소 지우기
+            $("#p").remove();   // 아이디p를 지우기
+
+            // attr = 가져온 아이디의 값에서 원하는 값은 빼온다
+            $("#chk").attr("data-human", "1234");
+            let human = $("#chk").attr("data-human");
+            console.log(human);
+
+            // prop = 가져온 아이디의 속성값을 가져온다
+            let checked = $("#chk").prop("checked");
+            console.log(checked);   // => true
+            // 속성삭제
+            $("#chk").removeAttr("checked");
+            checked = $("#chk").prop("checked");
+            console.log(checked);   // => false
+
+            // 가져온 아이디의 값에있는 속성값을 true 바꿔준다
+            $("#chk").prop("checked", true);    // 전체선택할때 사용가능
+
+            $("#chk").val("chk2");  // 가져온 아이디의 value값을 변경가능하다 val("")
+            console.log($("#chk").val());   // 가져온아이디의 value값 확인
+            console.log($("#chk")[0].value);    // javascript도 같이 사용가능
+
+            // 클래스 추가
+            $("#chk").addClass("c1");
+            $("#chk").addClass("c2");
+
+            // 클래스 제거
+            $("#chk").removeClass("c1");
+
+            let c2 = $("#chk").hasClass("c2");  // id값에 ("클래스")가있는지 확인
+            console.log(c2);
+
+            // 있으면 빼고 없으면 넣고(토글)
+            $("#chk").toggleClass("c2");
+
+            // 토글 구현
+            if($("#chk").hasClass("c2")) {  // c2가 있으면
+                $("#chk").removeClass("c2");    // c2제거
+            } else {                        // c2가 없으면
+                $("#chk").addClass("c2");   // c2추가
+            }
+                        
+            console.log($("#chk").data("human")); // id값에서 data를 뺀 human 값
+            $("#chk").data("human2", "abcd");   // id값에 데이터 추가
+            console.log($("#chk").data("human2"));
+
+        }
+        function bind() {   // 이벤트 모아둠
+
+            $(".btn").on("click", function(event) { // .btn 이 클릭이벤트가 생기면
+                let text = event.target.value;  // event의. 타겟의. 값을 가져온다
+                // $(event.target).val();   jQuery로도 호출만하면 사용가능하다
+                console.log(text);
+            })
+            $(".btn").on("click", function(event) { // 2번실행
+                let text = event.target.value;  
+                // $(event.target).val();   
+                console.log(text);
+            })  // .off는 기존의 기능을 없애주는것
+            $(".btn").off("click").on("click", function(event) { // .btn 이 클릭이벤트가 생기면 
+                let text = event.target.value;  // 하나만 실행되도록 위에이벤트를 제거해준다
+                // $(event.target).val();   
+                console.log(text);
+            })
+
+        }
+    
+    </script>
+</head>
+<body>
+    <h1>1번째</h1>
+    <h1>2번째</h1>
+    <h1 class="c">3번째</h1>
+    
+    <div id="p">
+        부모 p
+        <div>
+            자식 1
+        </div>
+    </div>
+
+    <input type="checkbox" id="chk" value="chk1" data-human="아무거나" checked="checked">
+
+    <input type="button" class="btn" value="버튼1"><br>
+    <input type="button" class="btn" value="버튼2"><br>
+</body>
+</html>

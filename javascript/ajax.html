@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+            crossorigin="anonymous"></script>
+    <script>
+        function doAjax() {
+            // ajax 객체 생성
+            let xhr = new XMLHttpRequest();
+            // 보낼 준비 "방식", "주소", "동기/비동기"
+            // xhr.open("get", "https://cors-anywhere.herokuapp.com/https://www.google.com");
+            xhr.open("get", "https://poiemaweb.com/jquery-ajax-json");
+            // 보내기(단! 언제 끝날지 모름)
+            xhr.send();
+
+            // 다녀온 후(응답 이후)
+            xhr.onload = function() {
+                // 받아온 내용이 저장되는 곳
+                let data = xhr.responseText;
+                console.log(data);
+
+                let parser = new DOMParser();   // DOM을 분석하는 함수
+                let doc = parser.parseFromString(data, "text/html");  // data에 들어있는값을 text인 html로 변환해준다
+                console.log(doc);
+                console.log(doc.getElementById("1-introduction").innerHTML);    // doc안에있는 아이디값으로 찾아준다
+            }
+        }
+        window.addEventListener("load", function() {
+            document.querySelector("#btn").addEventListener("click", function() {
+                doAjax();
+            })
+
+            // jquery ajax 1번째 방법
+            $("#btn2").off("click").on("click", function() {
+                let option = {  // ""는 안써도된다
+                    "url": "https://jsonplaceholder.typicode.com/users",
+                    "type": "get",
+                    "success": function(data) {
+                        // 다녀오는걸 성공 했을때
+                        console.log("방법1");
+                        console.log(data);
+                    },
+                    "error": function(data) {
+                        // 다녀오는걸 실패 했을때
+                        console.error("ERROR", data);
+                    },
+                    "complete": function(data) {
+                        // 성공여부에 관계없이 무조건 마지막에 실행
+                        console.log("complete", data);
+                    }
+                };
+
+                $.ajax(option);
+            })
+
+            // jquery ajax 2번째 방법
+            $("#btn3").off("click").on("click", function() {
+                let option = {  
+                    "url": "https://jsonplaceholder.typicode.com/users",
+                    "type": "get"
+                }
+                // don은 완료됬다(과거) fail은 실패했을때
+                // 함수가 연결되는 방식을 체인방식이라고 함
+                $.ajax(option)
+                        .done(function(data) {
+                        // 다녀오는걸 성공 했을때
+                        console.log("방법2");
+                        console.log(data);
+                    })
+                        .fail(function(data) {
+                        // 다녀오는걸 실패 했을때
+                        console.error("ERROR", data);
+                    })
+                        .always(function(data) {
+                        // 성공여부에 관계없이 무조건 마지막에 실행
+                        console.log("complete", data);
+                    })
+            })
+            $("#btn3").trigger("click") // 불러온 값을 클릭시켜준다
+            $("#btn3").hide("click")    // display none이됨
+            $("#btn3").show()   // display를 다시보여줌
+        })
+        // json은 key/value 쌍으로 이루어져있음
+        // json 선언만 하는 방법
+        let json = {};
+
+        // json 선언과 동시에 초기화
+        json = {
+            "k": "v",
+            "k2": "v2",
+            k3: "v3",
+            "k4": {
+                "k4_1": "v4"
+                // json은 key값안에 json을 넣을수있다
+            }
+        };
+        // <k>v</k>
+        
+        // 꺼내는 법
+        console.log(json);
+        console.log("" + json); // => [object object]
+        console.log(`json.k: ${json.k}`); // => v
+        console.log(`json.["k"]: ${json["k"]}`);  // 배열처럼 호출가능
+        console.log(`json.k3: ${json.k3}`);  // => v3
+        // k4 변수안에 k4key를 넣음
+        let k4 = json.k4;
+
+        console.log(k4.k4_1);
+        console.log(`json.k4.k4_1: ${json.k4.k4_1}`);
+        console.log(`json["k4"]["k4_1"]: ${json["k4"]["k4_1"]}`); // 배열처럼 호출가능
+        
+        let strJson = JSON.stringify(json); // json을 문자열로 변환
+        console.log(`strJson: ${strJson}`);
+
+        // json 문법으로 적힌 문자열을 json 객체로 변환
+        let json2 = JSON.parse(strJson);    // parse = 분석하다 라는 의미
+        console.log(json2);
+
+        // JSON.parse("sekfjsb"); SyntaxError 오류는 오토일 가능성이 높다
+
+    </script>
+</head>
+<body>
+    <button type="button" id="btn">다녀오기</button>
+    <br>
+    <button type="button" id="btn2">jquery ajax 방법 1</button>
+    <br>
+    <button type="button" id="btn3">jquery ajax 방법 2</button>
+</body>
+</html>

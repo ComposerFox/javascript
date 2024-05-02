@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // let rand = Math.random();
+        // 0 <= rand < 1
+        // 0*45 <= rand*45 < 1*45
+        // 0 <= rand*45 < 45
+        // 0 ~ 44.9999999
+        for(let i = 1; i <= 6; i++) {
+            let rand = parseInt(Math.random() * 45) + 1;
+            console.log(rand);
+        }
+        
+        // 생각하기 쉬운 방법
+        for(let i = 1; i <= 6; i++) {
+        let rand2 = (parseInt(Math.random() * 100) % 45) + 1;
+        console.log(rand2);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

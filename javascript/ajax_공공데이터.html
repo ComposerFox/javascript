@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mart {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 200px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        // 전달받는 매개변수명은 상관없음
+        function getMarketList(name, dom) {
+            console.log("getMarketList => name", name);
+
+            let url = "https://apis.data.go.kr/4490000/centralmarket/centralmarketList";
+            url += "?";
+            url += "serviceKey=" + "PEStbwJAyqGBlFRp4VkJJk0YH9ikPVIjL31IoqeP8cO%2FL%2BP2pKQc9ITilzuO15PiusKeWUp67YO5cfSyA%2Fyi0w%3D%3D";
+            url += "&";
+            url += "type=json";
+            url += "&";
+            url += "numOfRows=5";
+
+            let xhr = new XMLHttpRequest;
+
+            xhr.open("get", url);
+                
+            xhr.send();
+
+            xhr.onload = function() {
+                let data = xhr.responseText;
+                // console.log(data);
+
+                let json = JSON.parse(data);
+                // console.log(`상호명: ${json.item[4].conm}`);
+                // console.log(`운영시간: ${json.item[4].hour}`);
+                // console.log(`전화번호: ${json.item[4].telno}`);
+
+                for(let i = 0; i < json.item.length; i++) {
+
+                    // json.item[i].conm => 받아온 상호명
+                    // name => 검색하고 싶은 상호명
+                    if(json.item[i].conm == name) {
+                        console.log(`상호명: ${json.item[i].conm}`);
+                        console.log(`운영시간: ${json.item[i].hour}`);
+                        console.log(`전화번호: ${json.item[i].telno}`);
+                        console.log("----------------------");
+
+                        let html = "";
+                        html += `<div>상호명 : ${json.item[i].conm}</div>`;
+                        html += `<div>상호명 : ${json.item[i].hour}</div>`;
+                        html += `<div>상호명 : ${json.item[i].telno}</div>`;
+
+                        dom.style.lineHeight = "16px";
+                        dom.innerHTML = html;
+                    }
+
+                    
+                }
+            }
+
+        }
+
+        window.addEventListener("load", function() {
+            let marts = document.querySelectorAll(".mart");
+            for(let mart of marts) {
+                mart.addEventListener("mouseenter", function(event) {
+                    // name변수 = 현재이벤트의 타겟안에 설정해둔 data-name값을 넣는다
+                    let name = event.target.getAttribute("data-name");
+                    getMarketList(name, event.target);    // 함수의 매개변수에 name값을 넣는다
+                    // 이벤트의 타겟을 2번째 전달인자로 넣어준다.
+                })
+                mart.addEventListener("mouseout", function(event) {
+                    // name변수 = 현재이벤트의 타겟안에 설정해둔 data-name값을 넣는다
+                    let name = event.target.getAttribute("data-name");
+                    // 이벤트안의 타켓값을 name로 변경해준다
+                    event.target.style.lineHeight = "200px";
+                    event.target.innerHTML = name;
+                })
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <div class="mart" data-name="아시아마트">
+            아시아마트
+        </div>
+        <div class="mart" data-name="공원다방">
+            공원다방
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content {
+      width: 90%;
+      height: 1400px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid black;
+    }
+    #userId {
+      width: 90%;
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    #userTier {
+      width: 90%;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    .gameData {
+      width: 90%;
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    .chamImg {
+      width: 10%;
+      height: 70px;
+      margin: 0 auto;
+      border: 1px solid orangered;
+      display: inline-flex;
+      align-items: center;
+    }
+    #chamInImg {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      padding: auto;
+      border: 1px solid green;
+      border-radius: 50%;
+    }
+    .userItem {
+      width: 20%;
+      height: 70px;
+      margin: 0 auto;
+      border: 1px solid orangered;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: top;
+    }
+    .userItem img {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+      padding: auto;
+      border-radius: 50%;
+    }
+    .match {
+      width: 60%;
+      height: 70px;
+      margin: 0 auto;
+      border: 1px solid orangered;
+      display: inline-block;
+      vertical-align: top;
+    }
+  </style>
+  <script>
+
+    window.onload = function() {
+
+      document.querySelector("#namebtn")  // 전송버튼 누르면 시작
+            .addEventListener("click", function() {
+
+    let url = "https://kr.api.riotgames.com/";  // api 앞주소
+    let api_key = "?api_key=RGAPI-e716964f-b145-466b-97bc-5a67cc11435c";  // api key
+    let userNameUrl = "lol/summoner/v4/summoners/by-name/"; // name값 중간 주소
+    let textValue = document.querySelector("#riotName").value;  // 전달받은 닉네임값 넣기
+    let tagValue = document.querySelector("#tagName").value;
+    let name = encodeURI(textValue); // encodeURI => 인코딩 코드로 변환
+    
+    let tagUrl = `https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${name}/${tagValue}${api_key}`; // tag값으로 유저정보얻기
+
+              console.log(tagValue);
+
+
+
+    // 입력한 유저닉네임과 태그명으로 유저 정보얻기
+    let xhrTag = new XMLHttpRequest();
+
+    xhrTag.open("get", tagUrl);
+
+    xhrTag.send();
+
+    xhrTag.onload = function() {
+      let data = xhrTag.responseText;
+
+      let jsonTag = JSON.parse(data);
+
+      // console.log(jsonTag.gameName);
+
+      // let userPuuid = jsonTag.puuid;
+
+      // let url2 = url + userNameUrl + jsonTag.gameName + api_key;  // name값 주소
+
+    
+  
+
+    
+
+
+    }
+  
+})
+  }
+
+
+  </script>
+</head>
+<body>
+  <div id="content">
+    <div id="userId">
+      <input type="text" id="riotName" placeholder="닉네임">
+      <input type="text" id="tagName" value="KR1">
+      <input type="button" id="namebtn" value="조회">
+    </div>
+    <div id="userTier"></div>
+    <div id="gameData0" class="gameData">
+      <div id="chamImg0" class="chamImg"></div>
+      <div id="userItem0" class="userItem"></div>
+      <div id="match0" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData1" class="gameData">
+      <div id="chamImg1" class="chamImg"></div>
+      <div id="userItem1" class="userItem"></div>
+      <div id="match1" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData2" class="gameData">
+      <div id="chamImg2" class="chamImg"></div>
+      <div id="userItem2" class="userItem"></div>
+      <div id="match2" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData3" class="gameData">
+      <div id="chamImg3" class="chamImg"></div>
+      <div id="userItem3" class="userItem"></div>
+      <div id="match3" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData4" class="gameData">
+      <div id="chamImg4" class="chamImg"></div>
+      <div id="userItem4" class="userItem"></div>
+      <div id="match4" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData5" class="gameData">
+      <div id="chamImg5" class="chamImg"></div>
+      <div id="userItem5" class="userItem"></div>
+      <div id="match5" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData6" class="gameData">
+      <div id="chamImg6" class="chamImg"></div>
+      <div id="userItem6" class="userItem"></div>
+      <div id="match6" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData7" class="gameData">
+      <div id="chamImg7" class="chamImg"></div>
+      <div id="userItem7" class="userItem"></div>
+      <div id="match7" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData8" class="gameData">
+      <div id="chamImg8" class="chamImg"></div>
+      <div id="userItem8" class="userItem"></div>
+      <div id="match8" class="match">최근매치 만들예정</div>
+    </div>
+    <div id="gameData9" class="gameData">
+      <div id="chamImg9" class="chamImg"></div>
+      <div id="userItem9" class="userItem"></div>
+      <div id="match9" class="match">최근매치 만들예정</div>
+    </div>
+      
+    
+  </div>
+</body>
+</html>

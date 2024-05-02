@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content {
+      width: 90%;
+      height: 1400px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid black;
+    }
+    #userId {
+      width: 90%;
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    #userTier {
+      width: 90%;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    .match {
+      width: 90%;
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+  </style>
+  <script>
+
+    window.onload = function() {
+
+      document.querySelector("#namebtn")  // 전송버튼 누르면 시작
+            .addEventListener("click", function() {
+
+    let url = "https://kr.api.riotgames.com/";  // api 앞주소
+    let api_key = "?api_key=RGAPI-0b429a8d-e3e4-461f-b8f1-89a3f4a3eead";  // api key
+    let userNameUrl = "lol/summoner/v4/summoners/by-name/"; // name값 중간 주소
+    let textValue = document.querySelector("#riotName").value;  // 전달받은 닉네임값 넣기
+    let name = encodeURI(textValue); // encodeURI => 인코딩 코드로 변환
+    let url2 = url + userNameUrl + name + api_key;  // name값 주소
+
+    
+    
+  
+
+    
+
+    let xhr = new XMLHttpRequest;
+
+    xhr.open("get", url2);
+
+    xhr.send();
+
+    xhr.onload = function() {
+      let data = xhr.responseText; 
+
+      let json = JSON.parse(data);  // data안에서 json값 찾기
+      
+      let html = "";
+      html += `<div>${json.name}</div>`;  // json name값 넣기
+      console.log(html);
+      
+      let test1 = document.querySelector("#userId");
+      test1.innerHTML = html; // userId에 롤 닉네임 넣기
+
+      let userIden = json.id; // 티어정보 얻기위한 아이디값
+      console.log(userIden);
+      let userIdUrl = "lol/league/v4/entries/by-summoner/"; // 티어정보 얻기위한 중간주소
+
+      let url3 = url + userIdUrl + userIden + api_key;  // 티어정보 얻기위한 주소
+      
+
+      
+      // 티어정보 시작
+      let xhr2 = new XMLHttpRequest;
+
+      xhr2.open("get", url3);
+
+      xhr2.send();
+
+      xhr2.onload = function() {
+        let data2 = xhr2.responseText;
+
+        let json2 = JSON.parse(data2);
+        console.log(json2);
+
+        let test2 = document.querySelector("#userTier");  // 티어값 넣을 div가져오기
+
+        let html2 = "";
+        html2 += `<div>이번시즌티어 : ${json2[0].tier} = ${json2[0].rank} 포인트 : ${json2[0].leaguePoints} <br>`;
+        html2 += `승리 : ${json2[0].wins} 패배 : ${json2[0].losses}<br>`;
+        html2 += `저번시즌티어 : ${json2[1].tier} = ${json2[1].rank}</div>`;
+        test2.innerHTML = html2;  // 이번시즌티어, 현재포인트, 승리횟수, 패배횟수, 저번시즌티어 넣어주기
+        
+        
+      }
+
+      let api_key2 = "api_key=RGAPI-0b429a8d-e3e4-461f-b8f1-89a3f4a3eead";  // 중간에 주소값이 바껴야됨
+
+      let puuid = json.puuid; // json.puuid값을 넣어줌
+
+      let puuidUrl = `lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&`;  // puuid로 매치정보얻는 주소
+      let url_2 = "https://asia.api.riotgames.com/"; // 앞에 주소부분 변경
+      let url4 = `https://asia.api.riotgames.com/${puuidUrl}${api_key2}`; // 앞에 주소부분 변경
+      
+      // match id 얻기 시작
+      let xhr3 = new XMLHttpRequest;
+
+      xhr3.open("get", url4);
+
+      xhr3.send();
+
+      xhr3.onload = function() {
+        let data3 = xhr3.responseText;
+
+        let json3 = JSON.parse(data3);  // match id 넣어주기
+      
+        console.log(json3);
+
+        let url5 = [];
+
+        for(let i = 0; i <= json3.length - 1; i++) {  // match id수만큼 반복문 돌리기
+          let matchCode = json3[i]; // 나온 매치아이디를 matchCode 안에 넣어주기
+          console.log(matchCode);
+
+          let matchUrl = `lol/match/v5/matches/${matchCode}`;  // match정보보는 중간부분주소
+          url5.push(url_2 + matchUrl + api_key);  // match정보보는 주소
+          
+          
+
+        }
+        
+        console.log(url5);
+
+        let data4;
+        let json4;
+
+        for(let i = 0; i <= 9; i++) {
+
+        
+
+        let xhr4 = new XMLHttpRequest;
+
+        xhr4.open("get", url5[i]);
+
+        xhr4.send();
+
+        xhr4.onload = function() {
+        data4 = xhr4.responseText;
+
+        json4 = JSON.parse(data4);  // match 정보 얻어오기
+
+        console.log(json4);
+
+        }
+
+        }
+        console.log(json4);
+      }
+
+      
+
+  }
+})
+  }
+
+  </script>
+</head>
+<body>
+  <div id="content">
+    <div id="userId">
+      <input type="text" id="riotName" placeholder="닉네임">
+      <input type="button" id="namebtn" value="조회">
+    </div>
+    <div id="userTier"></div>
+    <div id="match1" class="match">최근매치 만들예정</div>
+    <div id="match2" class="match">최근매치 만들예정</div>
+    <div id="match3" class="match">최근매치 만들예정</div>
+    <div id="match4" class="match">최근매치 만들예정</div>
+    <div id="match5" class="match">최근매치 만들예정</div>
+    <div id="match6" class="match">최근매치 만들예정</div>
+    <div id="match7" class="match">최근매치 만들예정</div>
+    <div id="match8" class="match">최근매치 만들예정</div>
+    <div id="match9" class="match">최근매치 만들예정</div>
+    <div id="match10" class="match">최근매치 만들예정</div>
+  </div>
+</body>
+</html>

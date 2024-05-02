@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        
+        
+        let xhr = new XMLHttpRequest;
+
+        xhr.open("get", "https://jsonplaceholder.typicode.com/users");
+            
+        xhr.send();
+
+        xhr.onload = function() {
+            let data = xhr.responseText;
+            console.log(data);
+
+            let json = JSON.parse(data);    //  JSON의 형태의값을 parse로 뽑아온다
+            console.log(json);
+            console.log(json[2]);   // JSON의 안에 3번째 배열값
+            console.log(json[2].name);  // JSON의 안에 3번째 배열값의 이름값
+            console.log(json[2].address.street);    // JSON의 안에 3번째 배열값의 address key값안에 street의 값
+        }
+
+        
+        
+        
+        
+            
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

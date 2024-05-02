@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let str = "01234567890123456789";
+
+        // indexOf
+        // 글씨를 인덱스 0부터 찾아줌
+        // 첫번째 찾은것만 return함
+        let idx = str.indexOf("3");
+        console.log(idx);
+
+        // 없으면 -1
+        idx = str.indexOf("abc");
+        console.log(idx);
+
+        let result = str.slice(2, 6);
+        console.log(`slice(2, 6)`, result);
+
+        result = str.substring(2, 6);
+        console.log("substring(2, 6)", result);
+
+        result = str.substr(2, 6);
+        console.log("substr(2, 6)", result);
+
+        str = "AbCdEf";
+        console.log(str.toLowerCase());
+        str2 = "AB";
+
+        result = str.toLowerCase().indexOf(str2.toLowerCase());
+        console.log(result);
+
+        // 앞뒤 공백제거
+        str = "      a b  c      ";
+        console.log("[" + str.trim() + "]");
+
+        console.log("len :", str.length);
+
+        str = "01234567890123456789";
+        result = str.replace("23", "이삼");
+        console.log(result);
+        
+        // 정규표현식 /안에있는 것을 모두 찾아줌/g
+        result = str.replace(/23/g, "이삼");
+        console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        for 하나 이상
+        문자 딱 하나만 변수에 담아서 사용(let  str = "+")
+        document.write()를 이용해서 출력
+        (옆으로 이어서 써줌, 다음줄을 "<br>")
+        */
+
+        let str = "+"
+
+        /*
+        1단계
+        +++++
+        */
+
+        for(let m = 1; m <= 5; m++) {
+            document.write(str);
+        }
+
+        document.write("<br>");
+
+        /*
+        2단계
+        +++++
+        +++++
+        +++++
+        */
+
+        for(let n = 0; n < 3; n++) {
+            for(let m = 0; m < 5; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        3단계
+        +
+        ++
+        +++
+        ++++
+        +++++
+        */
+        for(let n = 1; n <= 5; n++) {
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        4단계
+        +....
+        ++...
+        +++..
+        ++++.
+        +++++
+        */
+
+        let str2 = ".";
+
+        for(let n = 1; n <= 5; n++) {
+            for(let m = 0; m < n; m++) {
+                document.write(str);
+            }
+            for(let e = 4; e >= n; e--) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        5단계
+        ....+
+        ...++
+        ..+++
+        .++++
+        +++++
+        */
+
+        for(let n = 1; n <= 5; n++) {
+            for(let e = 4; e >= n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        6단계
+        ....+
+        ...+++
+        ..+++++
+        .+++++++
+        +++++++++
+        */
+
+        for(let n = 0; n < 5; n++) {
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        7단계
+        ....+....
+        ...+++...
+        ..+++++..
+        .+++++++.
+        +++++++++
+        */
+
+        for(let n = 0; n < 5; n++) {
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

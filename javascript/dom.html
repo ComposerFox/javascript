@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hide {
+            display: none;
+        }
+        #css {
+            font-size: 30px;
+        }
+    </style>
+
+    <script>
+        // window.onload = function () {
+        //     init();
+        // }
+        // function init() {
+        //     let title = document.getElementById("title");
+        //     console.log(title);
+        //     console.log("" + title);
+        // }
+    </script>
+</head>
+
+<body>
+    <h1 id="title">DOM 연습</h1>
+
+    <div id="view">abc</div>
+    <div id="view">123</div>
+
+    <div id="div1">
+        <div class="div2">
+            class div2(안쪽)
+        </div>
+    </div>
+    <div class="div2">
+        class div2
+    </div>
+
+    <div id="wrap"></div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>이름</td>
+                <td>주소</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td id="name">
+                    <span>민   수</span>
+                </td>
+                <td id="addr">천안</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="css">
+        반장 당선을 축하드립니다
+    </div>
+
+    <script>
+        // 아이디로 DOM 찾기
+        // 없으면 null
+        let title = document.getElementById("title");
+        console.log(title);
+        console.log("" + title);
+
+        // 아이디가 동일한 첫번째 DOM 하나만 가져옴
+        let view = document.getElementById("view");
+        console.log(view);
+
+        // tag명으로 DOM 찾기
+        // 결과는 배열
+        let divs = document.getElementsByTagName("div");
+        console.log(divs);
+
+        // 하나만 있어도 한개짜리 배열
+        let h1s = document.getElementsByTagName("h1");
+        console.log(h1s);
+
+        // 없는 경우
+        // 비어있는 배열 (null 아님에 주의!)
+        // 배열.length == 0 이면 없음
+        let h1s_temp = document.getElementsByTagName("h1a");
+        console.log(h1s_temp);
+
+        // 전달인자로 css 선택자를 사용
+        // 첫번째 딱 하나만 돌려줌
+        let qs = document.querySelector("#title");
+        console.log(qs);
+
+        qs = document.querySelector("div");
+        console.log(qs);
+
+        // 없으면 null
+        qs = document.querySelector("div2");
+        console.log(qs);
+
+        let qsa = document.querySelectorAll("div");
+        console.log(qsa);
+
+        // 없으면 길이가 0인 배열
+        qsa = document.querySelectorAll("div2");
+        console.log(qsa);
+
+        qsa = document.querySelectorAll("#view");
+        console.log(qsa);
+
+        // document만 안쓰고 부모의값을 변수에담은뒤 변수.querySelector('자식') 해도됩
+        qs = document.querySelector("#div .div2");
+        let div1 = document.querySelector("#div1");
+        let div2 = div1.querySelector(".div2");
+        console.log("div2 :", div2);
+        // innerHTML은 선택한값을(코드) 가져온다.
+        console.log("div2 :", div2.innerHTML);
+        console.log("div2 :", div1.innerHTML);
+
+        // 새로운 태그를 메모리에 생성
+        let div = document.createElement("div");
+        // 바꾸고싶은곳.innerHTML = "내용을 바꿀수있음"
+        div.innerHTML = "내용이 바뀜"
+
+        // setAttribute("원하는속성", "속성값")
+        // 없으면 만들어주고
+        // 있으면 덮어씀
+        div.setAttribute("title", "타이틀");
+        div.setAttribute("id", "아이디");
+        div.setAttribute("id", "아이디2");
+        div.setAttribute("style", "color: red;");
+        // 안에있는 속성을 지워줌
+        div.removeAttribute("title");
+
+        div.setAttribute("class", "a");
+        // class 값을 가져와서 원래있던 a에 + b를 추가해준다.
+        let t1 = div.getAttribute("class") // + "b";
+        console.log(t1);
+        t1 = t1 + " b";
+        console.log(t1);
+        div.setAttribute("class", t1);
+
+        //  클래스를 쉽게 다루는 방법
+        console.log(div.classList);
+        div.classList.add("red");
+        div.classList.remove("a");
+        // toggle 다시 실행하면 없어짐
+        div.classList.toggle("c");
+        let red = div.classList.contains("red");
+        console.log("red:", red);
+
+        let value = div.getAttribute("id");
+        console.log("id :", value);
+
+        console.log(div);
+
+        qs = document.querySelector("#wrap");
+        // 부모요소에 자식요소로 추가함(뒤에추가됨)
+        qs.append(div);
+        // qs.append("글씨");
+        // // appendChild는 딱 하나만 쓸수있고 dom만 전달할수있음
+        // qs.appendChild(div);
+
+        let name = document.querySelector("#name");
+        console.log("innerHTML", name.innerHTML);
+        // innerText는 화면에 보이는 계산이 끝난 글씨를 가져옴
+        console.log("innerText", name.innerText);
+        // textContent는 소스그대로
+        console.log("textContent", name.textContent);
+        let addr = document.querySelector("#addr");
+        // addr.innerText = "평택";
+        addr.innerHTML = "<strong>평택</strong>";
+
+        let css = document.querySelector("#css");
+        // css.style.속성
+        // font-size >> fontSize
+        console.log(1, css.style.fontSize);
+        css.style.fontSize = "20px";
+        console.log(1, css.style.fontSize);
+        css.style.backgroundColor = "#00ff0090";
+        // 덮어쓴다.
+        css.style.cssText = "color: blue; border: 1px solid red;"
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" action="http://naver.com">
+        아이디 : <input type="text" id="id" name="id"><br>
+        비밀번호 : <input type="password" id="pw" name="pw"><br>
+        <input type="button" id="login" value="로그인">
+    </form>
+
+    <script>
+        document.querySelector("#id")
+                .addEventListener("keyup", function(event) {
+                    console.log(event.keyCode); // 현재의 키값을 가져온다
+                    if(event.keyCode == 13) {
+                        document.querySelector("#pw").focus();
+                    }
+                })
+        // 패스워드에서 엔터키 입력시
+        // 로그인 버튼 자동으로 클릭
+        document.querySelector("#pw")
+                .addEventListener("keyup", function(event) {
+                    if(event.keyCode == 13) {
+                        document.querySelector("#login").click();
+                    }
+                })        
+        document.querySelector("#login")
+                .addEventListener("click", function(event) {
+                    document.querySelector("#form").submit();
+                })        
+
+    </script>
+</body>
+</html>

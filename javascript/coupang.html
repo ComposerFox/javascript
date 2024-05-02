@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content {
+            border: 1px solid black;
+            width: 95%;
+            height: 800px;
+            margin: 0 auto;
+        }
+        #smallimg {
+            border: 1px solid red;
+            width: 10%;
+            height: 500px;
+            margin: 0 auto;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        #mainimg {
+            border: 1px solid red;
+            width: 40%;
+            height: 500px;
+            margin: 0 auto;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        #main {
+            border: 1px solid red;
+            width: 45%;
+            height: 500px;
+            margin: 0 auto;
+            display: inline-block;
+            vertical-align: top;
+        }
+        #mainpix {
+            width: 90%;
+        }
+        #title {
+            border: 1px solid orange;
+            width: 90%;
+            height: 100px;
+            margin: 0 auto;
+        }
+        #math {
+            border: 1px solid orange;
+            width: 90%;
+            height: 100px;
+            margin: 0 auto;
+        }
+        #option {
+            border: 1px solid orange;
+            width: 90%;
+            height: 100px;
+            margin: 0 auto;
+        }
+        #img1 {
+            border: 1px solid orange;
+        }
+        #img2 {
+            border: 1px solid orange;
+        }
+        #img3 {
+            border: 1px solid orange;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            
+            let main = document.querySelector("#mainimg");
+
+            document.getElementById("img1")
+                    .addEventListener("click", function(event) {
+                        main.innerHTML = '<img src="https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/397296000467275-5a83a375-06a6-4c00-9e16-ffd2687b23c8.jpg"id="mainpix">'
+                    })
+            document.getElementById("img2")
+                    .addEventListener("click", function(event) {
+                        main.innerHTML = '<img src="https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/243016895506302-a56a940e-7137-40a4-bd5f-bb3ff6817f23.jpg"id="mainpix">'
+                    })
+            document.getElementById("img3")
+                    .addEventListener("click", function(event) {
+                        main.innerHTML = '<img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/244645868976941-4cb3639f-4124-438d-a275-37bb3d86cecb.jpg"id="mainpix">'
+                    })
+
+            
+            
+            //  이밑에부분은 실패했습니다..
+            let result = document.querySelector("#math");
+            
+            document.getElementById("che")
+                    .addEventListener("change", function(event) {
+
+                    let che0 = document.querySelector("#che0").selected;
+                    let che1 = document.querySelector("#che1").selected;
+                    let che2 = document.querySelector("#che2").selected;
+                    let che3 = document.querySelector("#che3").selected;
+
+                    if(che1 == true) {
+                        result.innerHTML = '<input type="text" id="result" value="1,460,000원" readonly>';
+                    } else if(che2 == true) {       
+                        result.innerHTML = '<input type="text" id="result" value="1,960,000원" readonly>';
+                    } else if(che3 == true) {
+                        result.innerHTML = '<input type="text" id="result" value="2,189,000원" readonly>';
+                    } else if(che0 == true) {
+                        result.innerHTML = '<input type="text" id="result" value="1,300,000원" readonly>';
+                    }
+                })
+            
+
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div id="smallimg">
+            <div id="img1">
+                <img src="https://thumbnail6.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/397296000467275-5a83a375-06a6-4c00-9e16-ffd2687b23c8.jpg">
+            </div>
+            <div id="img2">
+                <img src="https://thumbnail7.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/243016895506302-a56a940e-7137-40a4-bd5f-bb3ff6817f23.jpg">
+            </div>
+            <div id="img3">
+                <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/244645868976941-4cb3639f-4124-438d-a275-37bb3d86cecb.jpg">
+            </div>
+        </div>
+        <div id="mainimg">
+            <img src="https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/397296000467275-5a83a375-06a6-4c00-9e16-ffd2687b23c8.jpg"
+                      id="mainpix">
+        </div>
+        <div id="main">
+            <div id="title">
+                Apple 2020 맥북 에어 13
+            </div>
+            <div id="math">
+                <input type="text" id="result" value="1,300,000원" readonly>
+            </div>
+            <div id="option">
+                <select id="che">
+                    <option id="che0" value="che0" selected>추가옵션</option>
+                    <option id="che1" value="che1">램16g(160,000원)</option>
+                    <option id="che2" value="che2">램16g(160,000원)+용량 1TB (500,000원)</option>
+                    <option id="che3" value="che3">램16g(160,000원)+용량 1TB (500,000원)+AppleCare (229,000원)</option>
+                </select>
+            </div>
+            <div id="cradit"></div>
+        </div>
+    </div>
+</body>
+</html>

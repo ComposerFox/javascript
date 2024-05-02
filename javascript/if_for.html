@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 10;
+        if(a > 10) {
+            console.log("10보다 큽니다");
+        }
+        if(a <= 10) {
+            console.log("10보다 작거나 같다");
+        }
+        if( !(a > 10) ) {
+
+        }
+        if(a > 10 && a < 20) {
+
+        }
+        // 정반대
+        if( !(a > 10 && a < 20) ) {
+            
+        }
+        // && 가 || 보다 우선순위가 높다.
+        if(a > 10 && a < 20 || a == 15) {
+
+        }
+        // && 만 있는 경우
+        // 처음부터 false를 만나는 순간까지만 연산
+        if(a > 1 && a > 10 && a > 100 && a > 1000) {
+
+        }
+        // || 만 있는 경우
+        // 처음부터 true를 만나는 순간까지만 연산
+        if(a > 1 || a > 10 || a > 100 || a > 1000) {
+
+        }
+
+        let score = 95;
+        if(score > 90) {
+            console.log("A");
+        // } else if(score > 80) {
+        } else if( !(score > 90) && score > 80) {
+            console.log("B");
+        } else {
+            console.log("F");
+        }
+
+        if(score > 90) {
+            console.log("A");
+        } 
+        if(score > 80) {
+            console.log("B");
+        }
+        // score가 null, undefind가 아닐경우
+        if(score == 0 || score) {
+
+        }
+
+        let grade = score > 90 ? "A" : "F"
+
+        // switch는 if 중에서 ==으로 구성된 경우 사용 가능
+        let i = 6;
+        switch(i) { // break 생략시 || 와 같음
+            case 3:
+            case 4:
+            case 5:
+                console.log("봄");
+                break;
+            case 6:
+            case 7:
+            case 8: 
+                console.log("여름");
+                break;
+            case 9:
+            case 10:
+            case 11: 
+                console.log("가을");
+                break;
+            default :
+                console.log("겨울");
+                break;
+        }
+
+        // for
+        // 1단계 : 반복되는 패턴을 찾기
+        // 2단계 : 반복되지 않는 것의 패턴을 찾기
+        // 3단계 : 시작과 끝을 파악
+        // 만약 끝이 명확하지 않으면 while
+        // 끝이 명확하면 for
+
+        // 1단계
+        console.log("2 x 1 = 2");
+        console.log("2 x 2 = 4");
+        console.log("2 x 3 = 6");
+        console.log("2 x 4 = 8");
+        console.log("2 x 5 = 10");
+        // 2단계
+        // 다음 출력물을 ctrl+c해서 ctrl+v한 뒤에
+        // 내가 뭘 어떻게 바꾸는지 보고
+        // 바꾼 애들을 변수로 표시
+        let j = 1;
+        console.log("2 x 1 = 2");
+        console.log("2 x " + j + " = " + (j*2));
+        j = 2;
+        console.log("2 x 2 = 4");
+        console.log("2 x " + j + " = " + (j*2));
+
+        console.log("--------------------");
+
+        for(let j = 1; j <= 9; j++) {
+            console.log("2 x " + j + " = " + (j*2));
+        }
+        for(let j = 1; j <= 9; j++) {
+            console.log("3 x " + j + " = " + (j*3));
+        }
+        k = 3;
+        for(let j = 1; j <= 9; j++) {
+            console.log(k + " x " + j + " = " + (j*k));
+        }
+        console.log("--------------------");
+        for(let k = 2; k <= 9; k++) {
+            for(let j = 1; j <= 9; j++) {
+                console.log(k + " x " + j + " = " + (j*k));
+            }
+            console.log("--------------------");
+        }
+
+        /*
+        for 하나 이상
+        문자 딱 하나만 변수에 담아서 사용(let  str = "+")
+        document.write()를 이용해서 출력
+        (옆으로 이어서 써줌, 다음줄을 "<br>")
+        */
+
+        let str = "+"
+
+        /*
+        1단계
+        +++++
+        */
+
+        for(let m = 1; m <= 5; m++) {
+            document.write(str);
+        }
+
+        document.write("<br>");
+
+        /*
+        2단계
+        +++++
+        +++++
+        +++++
+        */
+
+        for(let n = 0; n < 3; n++) {
+            for(let m = 0; m < 5; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        3단계
+        +
+        ++
+        +++
+        ++++
+        +++++
+        */
+        for(let n = 1; n <= 5; n++) {
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        4단계
+        +....
+        ++...
+        +++..
+        ++++.
+        +++++
+        */
+
+        let str2 = ".";
+
+        for(let n = 1; n <= 5; n++) {
+            for(let m = 0; m < n; m++) {
+                document.write(str);
+            }
+            for(let e = 4; e >= n; e--) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+        // 다른방법
+        for(let n = 1; n <= 5; n++) {
+            for(let m = 0; m < n; m++) {
+                document.write(str);
+            }
+            for(let e = 0; e < (5 - n); e++) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        5단계
+        ....+
+        ...++
+        ..+++
+        .++++
+        +++++
+        */
+
+        for(let n = 1; n <= 5; n++) {
+            for(let e = 4; e >= n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        6단계
+        ....+
+        ...+++
+        ..+++++
+        .+++++++
+        +++++++++
+        */
+
+        for(let n = 0; n < 5; n++) {
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        // 다른방법
+
+        for(let n = 1; n <= 5; n++) {
+            for(let e = 1; e <= (5 - n); e++) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= (2 * n)-1; m++) {
+                document.write(str);
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+        /*
+        7단계
+        ....+....
+        ...+++...
+        ..+++++..
+        .+++++++.
+        +++++++++
+        */
+
+        for(let n = 0; n < 5; n++) {
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= n; m++) {
+                document.write(str);
+            }
+            for(let m = 0; m <= n; m++) {
+                document.write(str);
+            }
+            for(let e = 4; e > n; e--) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+        
+        document.write("<br>");
+
+         // 다른방법
+
+         for(let n = 1; n <= 5; n++) {
+            for(let e = 1; e <= (5 - n); e++) {
+                document.write(str2);
+            }
+            for(let m = 1; m <= (2 * n)-1; m++) {
+                document.write(str);
+            }
+            for(let e = 1; e <= (5 - n); e++) {
+                document.write(str2);
+            }
+            document.write("<br>");
+        }
+
+
+
+        for(let i = 0; i < 10; i++) {
+            console.log("숫자출력", i);
+            if(i % 2 == 0) {
+                continue;
+            }
+            console.log("홀수");
+        }
+
+
+
+        for(let i = 0; i < 10; i++) {
+            if(i > 5) {
+                break;  // break는 가장가까운 반복문만 종료한다.
+            }
+            console.log("숫자출력", i);
+        }
+
+        for(let i = 0; i < 10; i++) {
+            
+            let isBreak = false;
+            
+            for(let j = 0; j < 10; j++) {
+                if(j > 5) {
+                    isBreak = true;
+                    break;
+                }
+            }
+
+            if(isBreak == true) {
+                break;
+            }
+        }
+
+        let m = 10;
+        let n = 20;
+        // m의 값을 n의 값으로 바꾸고
+        // n의 값을 m의 값으로 바꾸기
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

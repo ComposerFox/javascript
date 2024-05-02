@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            function fn1() {
+                document.querySelector("#view").innerHTML += "fn1<br>";
+                fn2();
+                document.querySelector("#view").innerHTML += "fn1-1<br>";
+            }
+            function fn2() {
+                setTimeout(function() {
+                    document.querySelector("#view").innerHTML += "fn2<br>";
+                }, 1000);
+                
+                fn3();
+            }
+            function fn3() {
+                document.querySelector("#view").innerHTML += "fn3<br>";
+            }
+            
+            fn1();
+        }
+    </script>
+</head>
+<body>
+    <div id="view"></div>
+    
+</body>
+</html>
