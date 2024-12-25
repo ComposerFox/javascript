@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1~10까지 더하는 워크 테스크 만들기</title>
+</head>
+<body>
+    <h3>1~10까지 더하는 워크 테스크 만들기</h3>
+    <hr>
+    <div>1에서 10까지의 합은 <span id="sum"></span></div>
+    <script>
+        let addWorker = new Worker("addto10.js");
+        addWorker.onmessage = function(e) {
+            document.getElementById("sum").innerHTML = e.data;
+        }
+    </script>
+</body>
+</html>
